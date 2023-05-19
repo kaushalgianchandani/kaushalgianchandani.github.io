@@ -3,8 +3,8 @@
   contents:
     - name: Full Name
       value: Kaushal Gianchandani
-      # - name: Date of Birth
-      # value: October 24
+    - name: Email
+      value: kaushal.g@mail.huji.ac.il
 #    - name: Languages
 #      value: English, German
 
@@ -14,8 +14,8 @@
     - title: PhD in Oceanography
       institution: The Hebrew University of Jerusalem, Israel
       year: 2023
-      # description:
-        # - Description 1.
+      description:
+        - "Thesis: Physical-biogeochemical dynamics of extreme paleoclimate events"
         # - Description 2.
         # - title: Description 3.
         #   contents:
@@ -24,23 +24,23 @@
     - title: Integrated BSc - MSc in Physics
       institution: National Institute of Science Education and Research, India
       year: 2017
-      # description:
-      #   - Description 1.
+      description:
+        - "Thesis: Transition to turbulence in subcritical baroclinic flows"
       #   - Description 2.
 
-# - title: Experience
+# - title: Work Experience
 #   type: time_table
 #   contents:
-#     - title: Professor of Theoretical Physics
-#       institution: Institute for Advanced Study, Princeton University
-#       year: 1933 - 1955
+#     - title: Teaching Assistant
+#       institution: Institute of Earth Sciences, Hebrew University of Jerusalem
+#       year: Oct 2020 - Jan 2021
 #       description:
-#         - Description 1.
-#         - Description 2.
-#         - title: Description 3.
-#           contents:
-#             - Sub-description 1.
-#             - Sub-description 2.
+#         - "Course: Mathematical methods in scientific models"
+        # - Description 2.
+        # - title: Description 3.
+        #   contents:
+        #     - Sub-description 1.
+        #     - Sub-description 2.
 #     - title: Visiting Professor
 #       institution: California Institute of Technology, Pasadena, California, US
 #       year: 1933

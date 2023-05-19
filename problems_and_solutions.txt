@@ -1,0 +1,5 @@
+ERROR:  Error installing jekyll:
+	The last version of sass-embedded (~> 1.54) to support your Ruby & RubyGems was 1.62.1. Try installing it with `gem install sass-embedded -v 1.62.1` and then running the current command again
+	sass-embedded requires RubyGems version >= 3.3.22. The current RubyGems version is 3.1.2. Try 'gem update --system' to update RubyGems itself.
+
+  Fix: gem install jekyll --version="~> 4.2.0"

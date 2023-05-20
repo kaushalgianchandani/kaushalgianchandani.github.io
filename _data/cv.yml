@@ -27,6 +27,44 @@
       description:
         - "Thesis: Transition to turbulence in subcritical baroclinic flows"
       #   - Description 2.
+- title: Talks
+  type: time_table
+  contents:
+    - title: Atmospheres and Oceans Seminar
+      year: Jan 2021
+      description: Johns Hopkins University, Baltimore, MD, USA
+
+- title: Conferences and Workshops
+  type: time_table
+  contents:
+    - title: GFD Days 2022
+      year: Apr 2022
+      description: Ben-Guiron University of the Negev, Sede Boqer, Israel
+
+    - title: Ocean Sciences Meeting 2022
+      year: Feb - Mar 2022
+      description: "Session: AI05 Role of ocean-atmosphere dynamics in global climate, Online"
+
+    - title: Next Generation Challenges in Energy-Climate Modeling Workshop
+      year: Sep 2021
+      description: University of Reading, Reading, UK, Online
+
+- title: Services
+  type: time_table
+  contents:
+    - title: Member, The Oceanography Society Student Committee
+      year: Sep 2021 - present
+      description: Served on the Coding Resources Subcommittee
+
+    - title: Co-chair, Session AI05 in Ocean Science Meeting 2022
+      year: Feb - Mar 2022
+      description: Participant of the inaugural OSM Session Mentoring Program
+
+- title: Awards
+  type: time_table
+  contents:
+    - title: Registration Grant, Ocean Sciences Meeting 2022
+      year: Sep 2021 - Mar 2023
 
 # - title: Work Experience
 #   type: time_table

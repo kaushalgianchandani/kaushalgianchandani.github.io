@@ -3,3 +3,7 @@ ERROR:  Error installing jekyll:
 	sass-embedded requires RubyGems version >= 3.3.22. The current RubyGems version is 3.1.2. Try 'gem update --system' to update RubyGems itself.
 
   Fix: gem install jekyll --version="~> 4.2.0"
+
+keeping a folder with _posts_bckp creates problems
+
+Use atom editor CTRL+SHIFT+F is your best friend.

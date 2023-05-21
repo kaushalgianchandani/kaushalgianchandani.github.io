@@ -10,10 +10,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>news | Kaushal Gianchandani</title>
+    <title>Boredom to Blogging | Kaushal Gianchandani</title>
     <meta name="author" content="Kaushal  Gianchandani">
-    <meta name="description" content="Kaushal Gianchandani's personal webpage.
-">
+    <meta name="description" content="writing my first blog">
     <meta name="keywords" content="kaushal, gianchandani, climate modeling, oceanography, sustainability, science">
 
 
@@ -39,7 +38,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚛️</text></svg>">
      -->
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://kaushalgianchandani.github.io/news/">
+    <link rel="canonical" href="https://kaushalgianchandani.github.io/blog/2023/first-blog/">
 
     <!-- Dark Mode -->
     
@@ -78,8 +77,8 @@
               </li>
               
               <!-- Blog -->
-              <li class="nav-item ">
-                <a class="nav-link" href="/blog/">blog</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="/blog/">blog<span class="sr-only">(current)</span></a>
               </li>
 
               <!-- Other pages -->
@@ -126,47 +125,49 @@
     <!-- Content -->
     <div class="container mt-5">
       
-        <!-- page.html -->
-        <div class="post">
+        <!-- _layouts/post.html -->
 
-          <header class="post-header">
-            <h1 class="post-title">news</h1>
-            <p class="post-description"></p>
-          </header>
+<div class="post" align="justify">
 
-          <article>
-                      <div class="news">
-            <div class="table-responsive">
-              <table class="table table-sm table-borderless">
-              
-                <tr>
-                  <th scope="row">May 20, 2023</th>
-                  <td>
-                    New website up and running!
+  <header class="post-header">
+    <h1 class="post-title">Boredom to Blogging</h1>
+    <p class="post-meta">May 21, 2023</p>
+    <p class="post-tags">
+      <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
+        ·  
+        <a href="/blog/tag/personal">
+          <i class="fas fa-hashtag fa-sm"></i> personal</a>  
+          
+        ·  
+        <a href="/blog/category/personal">
+          <i class="fas fa-tag fa-sm"></i> personal</a>  
+          
 
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Mar 22, 2023</th>
-                  <td>
-                    Traveling (Mar 22 to Apr 24), will be limiting my access to a keyboard.
+    </p>
+  </header>
 
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Mar 2, 2023</th>
-                  <td>
-                    Submitted my PhD thesis!
+  <article class="post-content">
+    
+    <div id="markdown-content">
+      <p>Okay, so picture this — I was seriously bored out of my mind. I mean, for the past ten days, my meals were all over the place, and I couldn’t resist snacking like there was no tomorrow. To make matters worse, Netflix had nothing interesting to offer, and House M.D. mysteriously vanished from Prime Video in my region. As if that wasn’t enough, I hadn’t left my house in three consecutive days! It was time for a change, I needed a distraction. I could have worked on one of my academic projects, it is not like I had any shortage of work to do. But here’s the deal: I just couldn’t muster the strength to spending yet another weekend working on one of those projects. Thus, blogging it was! Though it wasn’t as simple as I thought it would be. Let me break it down for you.</p>
 
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
+<p>First things first, let’s address the big question: <strong>why did I even want to write a blog in the first place?</strong> The TL;DR version is — I wanted some clout! We’ll discuss this another time. For now, let’s talk about building this blog.</p>
 
-          </article>
+<p>I had a bunch of platform options in mind—WordPress, Google sites, or maybe just hopping on the Medium.com bandwagon. They all had their perks, like less coding required, which sounded pretty sweet. But here’s the thing —  I wanted something integrated with my academic website. You know, the one I’ve had for a decade (<em>I don’t know why?</em> <img class="emoji" title=":unamused:" alt=":unamused:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f612.png" height="20" width="20">).  It was written in HTML, and while it got the job done, managing a blog solely with HTML? Yikes, not my idea of fun. Plus, who has the patience to learn all the ins and outs of website building, with CSS and whatnot? Seriously, I’m no Harvard undergrad creating the precursor to Facebook in a drunken coding frenzy from my dorm room while blogging at the same time. By the way, if you didn’t catch that reference, you need to watch “<a href="https://youtu.be/lB95KLmpLR4" rel="external nofollow noopener" target="_blank">The Social Network</a>” ASAP!</p>
 
-        </div>
+<p>Getting back to track, I found a sweet spot. GitHub Pages had some awesome templates, and a couple caught my eye: <a href="https://al-folio.github.io/" rel="external nofollow noopener" target="_blank">https://al-folio.github.io/</a> and <a href="https://al-folio.github.io/" rel="external nofollow noopener" target="_blank">https://academicpages.github.io/</a>. But here’s the kicker — I wanted readers to be able to comment right beneath my blog posts. That’s why I decided to go with al-folio, although I am yet to implement the comments part. Implementing the template on my GitHub account was a breeze — just followed the instructions in the README.md (<a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">https://github.com/alshedivat/al-folio</a>). Well, almost a breeze — I did run into a tiny snag with installing jekyll and bundle (will cover that in a post where I discuss how to build a personal webpage).</p>
+
+<p>Once I had the basic website template up and running, it was time to add my personal touch. Sure, I needed the usual “about” section and a blog, but I wanted more. I wanted a special section to showcase my publications. Alright, alright, I don’t have an overflowing library of papers just yet (<img class="emoji" title=":cry:" alt=":cry:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png" height="20" width="20">). But you know what would make it cooler if I had one? Adding the journal covers to my publications, just like <a href="http://www.niser.ac.in/~liton/publication.html" rel="external nofollow noopener" target="_blank">Liton Majumdar</a>’s website I saw. It took a few minutes to track down where the images should be stored, but I got there in the end.</p>
+
+<p>Oh, and get this — the template allowed me to include my CV right there on the web, and it looked pretty slick! Now, I didn’t want to just copy and paste my full CV (you need to click on the PDF icon for that). So, I decided to showcase items from the past three years, with my education background as the obvious exception.</p>
+
+<p>And guess what? As I was documenting the whole process of building this website — I had unknowingly (<img class="emoji" title=":stuck_out_tongue_winking_eye:" alt=":stuck_out_tongue_winking_eye:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f61c.png" height="20" width="20">) crafted my very first blog post. So here we are.</p>
+
+    </div>
+  </article>
+
+
+</div>
 
       
     </div>

@@ -7,3 +7,5 @@ ERROR:  Error installing jekyll:
 keeping a folder with _posts_bckp creates problems
 
 Use atom editor CTRL+SHIFT+F is your best friend.
+
+Resizing social media icons: change font size in the .social .contact-icons class in _base.scss

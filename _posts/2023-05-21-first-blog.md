@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Boredom to Blogging
+title:  Boredom to blogging
 date:   2023-05-21 01:49:00
 description: writing my first blog
 tags: personal

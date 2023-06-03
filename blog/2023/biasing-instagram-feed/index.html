@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    <!-- Metadata, OpenGraph and Schema.org -->
+    
+
+    <!-- Standard metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Conquering FOMO with Statistics | Kaushal Gianchandani</title>
+    <meta name="author" content="Kaushal  Gianchandani">
+    <meta name="description" content="a (moderately) data-driven exploration of social media anxiety">
+    <meta name="keywords" content="kaushal, gianchandani, climate modeling, oceanography, sustainability, science">
+
+
+    <!-- Bootstrap & MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+
+    <!-- Bootstrap Table -->
+    <link defer rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
+
+    
+
+    <!-- Styles -->
+    
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%8C%8A&lt;/text&gt;&lt;/svg&gt;">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="https://kaushalgianchandani.github.io/blog/2023/biasing-instagram-feed/">
+
+    <!-- Dark Mode -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/native.css" media="none" id="highlight_theme_dark">
+
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dark_mode.js"></script>
+    
+
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          <a class="navbar-brand title font-weight-lighter" href="/">Kaushal Gianchandani</a>
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+
+              <!-- About -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/">about</a>
+              </li>
+              
+              <!-- Blog -->
+              <li class="nav-item active">
+                <a class="nav-link" href="/blog/">blog<span class="sr-only">(current)</span></a>
+              </li>
+
+              <!-- Other pages -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/cv/">cv</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/publications/">publications</a>
+              </li>
+
+              <!-- Toogle theme mode -->
+              <li class="toggle-container">
+                <button id="light-toggle" title="Change theme">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Scrolling Progress Bar -->
+      <progress id="progress" value="0">
+        <div class="progress-container">
+          <span class="progress-bar"></span>
+        </div>
+      </progress>
+    </header>
+
+
+    <!-- Content -->
+    <div class="container mt-5">
+      
+        <!-- _layouts/post.html -->
+
+<div class="post" align="justify">
+
+  <header class="post-header">
+    <h1 class="post-title">Conquering FOMO with Statistics</h1>
+    <p class="post-meta">June 3, 2023</p>
+    <p class="post-tags">
+      <a href="/blog/2023"> <i class="fas fa-calendar fa-sm"></i> 2023 </a>
+        ·  
+        <a href="/blog/tag/how-to">
+          <i class="fas fa-hashtag fa-sm"></i> how-to,</a>  
+          <a href="/blog/tag/personal">
+          <i class="fas fa-hashtag fa-sm"></i> personal,</a>  
+          <a href="/blog/tag/social-media">
+          <i class="fas fa-hashtag fa-sm"></i> social-media,</a>  
+          <a href="/blog/tag/fomo">
+          <i class="fas fa-hashtag fa-sm"></i> fomo</a>  
+          
+        ·  
+        <a href="/blog/category/personal">
+          <i class="fas fa-tag fa-sm"></i> personal</a>  
+          
+
+    </p>
+  </header>
+
+  <article class="post-content">
+    
+    <div id="markdown-content">
+      <p>Have you ever felt that nagging fear of missing out, known as FOMO (Fear Of Missing Out)? Well, I’ve been battling with it for quite some time too. But guess what? I thought of an unconventional solution to tackle FOMO head-on — statistics! I know it sounds bizarre, but hear me out. In this blog post, we’ll dive into the world of FOMO, attempt to quantify the rather nuanced world of social media feeds, and explore a data-driven approach to decode this modern anxiety.</p>
+
+<p>First things first, let’s break down what FOMO really is. While ‘fear’ is right there in the acronym, I see it more as an anxiety response. Let’s draw a comparison between fear and anxiety: fear triggers the fight-or-flight response, while anxiety simply makes us feel uncomfortable. Urban Dictionary agrees with me and describes FOMO as a form of social anxiety — a compulsive concern that we might miss out on exciting opportunities or events, often triggered by social media posts.</p>
+
+<p>We’ve all experienced that anxious feeling when our friends plan a fun outing while we are buried in work, or when our colleagues keep getting promoted while we seem stuck in our careers. In today’s digital era, where information travels at lightning speed, FOMO has become a significant problem. So, I decided to analyze FOMO from a (relatively) data-driven perspective.</p>
+
+<p>To kick things off, I chose to analyze my Instagram feed — a platform I’m both afraid of and kinda addicted to. As I scrolled through my feed, I noticed a common thread: friends posting pictures of their lives (duh!). From casual outings to exotic vacations, from important life events to lifestyle flaunting, my feed was filled with it all. Now now, before you label me as a disapproving dino who doesn’t understand the modern world, let me clarify that I’m not passing any judgments; my feed reflects a mix of these activities too.</p>
+
+<p>Anyway, life is complex, and while scrolling through our feeds, we experience a range of emotions. But one thing remains constant — FOMO. So, how can we quantify it? I could have classified each social media post into a category and rated them from 1 to 10 based on the FOMO I experience by looking at the said post, but that approach had obvious drawbacks. Subjective ratings tend to be inconsistent, and a single social media post can fall into multiple categories. So, instead, I simplified things.</p>
+
+<p>In the realm of existence, there are three fundamental aspects that most human beings value: wisdom, health, and wealth. Simplifying further, on any given day, we tend to care about how smart or witty we appear, how good we look, and what our bank account balance is. These three elements provide a basis for quantifying our everyday lives, great! Not so much, since quantifying “brains” can be a tricky exercise. To circumvent this challenge, let’s assume that annual income reflects the extent to which one utilizes their intellectual abilities. In fact, it encompasses multiple factors beyond intelligence such as hard work, social amicability, and even cunningness. Likewise, I opt for BMI as a blunt instrument to size up one’s appearance. Yet, it’s unabashedly oversimplified, for allure resides solely in the eyes of the observer. Whether person A captivates person B might bear little to no connection to A’s BMI! Nonetheless, simplified quantification is often necessary when assessing various aspects of natural phenomena, including human existence. Consider the 7 colors of a rainbow or the 5 categories of a hurricane – comprehensible yet reductionist.</p>
+
+<p>Now, let’s delve into social media. Our online posts are intended to be reflections of our existence, or rather, what we want others to perceive our existence to be like. Therefore, we can quantify posts in our social media feed broadly based on the income and BMI of the individuals posting them. While intelligence plays a significant role in creating attractive posts and engaging content, we can capture its essence through income, as captivating posts often lead to various monetization opportunities. Here, I propose that the level of FOMO we experience is directly proportional to how distant our daily lives are from the perceived “coolness” we witness in our feeds.</p>
+
+<p>To quantify this, let’s embark on a thought experiment. If we randomly followed 1000 people on social media, how “cool” would our feed appear? To answer this, we can explore two questions:</p>
+
+<ol>
+  <li>What is the average income of the people we are following?</li>
+  <li>What is their BMI?</li>
+</ol>
+
+<p>To determine the average income, we can analyze income tax returns filed by individuals in India. By fitting the relative frequency of Average Gross Total Income to a power law distribution, we observe that while many people earn modest amounts, only a handful make tonnes of money.</p>
+
+<p>Regarding BMI, it is commonly assumed to be randomly distributed around the value of 23, indicating that a large majority of the population has an appropriate weight for their height, with fewer individuals either underweight or overweight. However, with the obesity epidemic, this distribution is likely changing as you read this.</p>
+
+<p>Based on the aforementioned data, the income and BMI distributions of the 1000 people we randomly follow might appear as illustrated below:</p>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/fig_income_bmi_hist_unbiased-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/fig_income_bmi_hist_unbiased-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/fig_income_bmi_hist_unbiased-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/fig_income_bmi_hist_unbiased.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Figure 1. Distribution of income (A) and BMI (B) for the 1000 people you randomly chose to follow. (For ease of computation, the maximum annual income in this sample is capped at 1 crore per year.)
+</div>
+
+<p>These distributions convey a wealth of information, but they can be overwhelming. To simplify matters, let’s introduce a scale for assessing the “coolness” of our feed. We can assign a coolness index, denoted as \(C\) to each post based on the individual’s income and their BMI compared to those we are following. The coolness index can be calculated as follows:</p>
+
+\[C = I + |3 - B|\]
+
+<p>Here, \(I\) score represents the logarithm base 10 of the annual income, while \(B\) reflects the deviation of the individual’s BMI from the mode of the BMI distribution of the 1000 people we follow. The mode is determined as the most frequently occurring value in the distribution.</p>
+
+<p>To put it simplify, if you wish to determine the anticipated level of coolness for any random post you make, you can assign it a score based on your annual income and BMI in comparison to those you follow. It’s important to note that this scoring is associated with the specific year the content was created. For example, if you have a moderately athletic physique, your \(B\) would be 0, and if you earn 10 lakhs per year, your \(I\) score would be 6. According to the formula, your post would be expected to receive a coolness index ranking of 9.</p>
+
+<p>You can estimate the coolness index of your posts \(C\) by calculating a log of your annual income in the year when the post was curated [just type log10(<em>your income</em>) on Google] and for your \(B\) refer to the table below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>BMI</th>
+      <th>\(B\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&lt; 15</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>15 to 17.9</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>18 to 20.9</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>21 to 23.9</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>24 to 26.9</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>27 to 29.9</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>&gt; 30</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="caption">
+    Table 1. Approximate values of B based on BMI
+</div>
+
+<p>Getting back to the coolness index, this approach works because income often reflects one’s lifestyle, fashion choices, travel experiences, and social engagements. Additionally, a considerable portion of the population finds a slim physique aesthetically pleasing, which is commonly associated with an ideal BMI. Based on this metric, the average coolness distribution when following 1000 people would resemble the graph below:</p>
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0" style="text-align: center">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/fig_coolness_index_unbiased-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/fig_coolness_index_unbiased-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/fig_coolness_index_unbiased-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/fig_coolness_index_unbiased.png" class="img-fluid rounded z-depth-1" width="50%" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Figure 2. The coolness index estimated based on the sample of income and BMI for a 1000 people.
+</div>
+
+<p>As you can observe, a feed filled with posts from 1000 randomly chosen individuals would primarily consist of posts that come from people with moderate income and acceptable BMI and rank close to 7 on the coolness scale. There would be fewer outliers with very high income and an aesthetic physique. The mode, representing the most common coolness index value, is 6.5. Thus, if our choice of people to follow were genuinely random, our feed would feature posts with coolness rankings ranging from 6 to 8 and therefore, if your own posts rank at 9, you are likely to experience little to no FOMO, whereas a rank of 4 would trigger significant FOMO.</p>
+
+<p>However, our behavior on social media is far from random and not even close to rational. Many of us populate our feeds by following “high achievers” such as movie stars, athletes, or YouTubers. Consequently, our feeds become skewed. To illustrate this statistically, let’s randomly select 30% (300 people) from the previous sample and assign them an annual income between 25 lakhs and 1 crore. Additionally, let’s attribute them an aesthetically pleasing physique with a BMI ranging from 19 to 21. Here are the skewed distributions of income and BMI:</p>
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/fig_income_bmi_hist_biased-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/fig_income_bmi_hist_biased-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/fig_income_bmi_hist_biased-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/fig_income_bmi_hist_biased.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Figure 3. Distribution of income (A) and BMI (B) for the 1000 people, has been biased by adding 300 "high achievers". The unbiased histogram are blue in color and the biased ones are yellow.
+</div>
+
+<p>This skewed distribution of income and BMI results in the following coolness index graph:</p>
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0" style="text-align: center">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/fig_coolness_index_biased-480.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/fig_coolness_index_biased-800.webp"></source>
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/fig_coolness_index_biased-1400.webp"></source>
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/fig_coolness_index_biased.png" class="img-fluid rounded z-depth-1" width="50%" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+<div class="caption">
+    Figure 4. Coolness index estimated using income and BMI for a biased sample that includes 30% "high achievers." The unbiased histogram is represented in blue, while the biased histogram is shown in yellow.
+</div>
+
+<p>Although the mean coolness value hasn’t shifted significantly, the mode has changed from 6 to 9. This skewness in our feed, favoring high numbers, leads us to believe that our own lives are lacking because we constantly compare ourselves to what appears most frequently in our feed. Moreover, it’s essential to recognize that what individuals post on Instagram is not an accurate depiction of their daily lives but rather a carefully curated selection that represents their best selves.</p>
+
+<p>In conclusion, following too many “cool” people may contribute to our unhappiness. However, it is also beneficial to follow individuals we aspire to be like or find fascinating, as they can provide us with a sense of direction and inspiration. Moderation is key to utilizing social media effectively. Additionally, it is crucial to remember that there are countless individuals out there who are similar to or worse off than ourselves, suggesting that we may be better off than we perceive.</p>
+
+<p>Disclaimer: I must clarify that I am not an expert in economics, finance, or social sciences. Therefore, several assumptions have been made throughout this discussion, which may not hold true in every circumstance. Furthermore, this exercise involves a considerable oversimplification, as humans are complex beings who cannot be reduced to their income and BMI alone. Keep in mind that this is merely an illustrative exercise. Happy thinking!</p>
+
+    </div>
+  </article>
+
+
+  
+    
+    <br>
+    <hr>
+    <br>
+    <ul class="list-disc pl-8"></ul>
+
+    <!-- Adds related posts to the end of an article -->
+    <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2>
+    <p class="mb-2">Here are some more articles you might like to read next:</p>
+  
+
+  <li class="my-2">
+    <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/first-blog/">Boredom to blogging</a>
+  </li>
+
+</div>
+
+      
+    </div>
+
+    <!-- Footer -->    
+    <footer class="fixed-bottom">
+      <div class="container mt-0">
+        © Copyright 2023 Kaushal  Gianchandani. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme.
+Last updated: June 03, 2023.
+      </div>
+    </footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-fgLAgv7fyCGopR/gBNq2iW3ZKIdqIcyshnUULC4vex8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/assets/js/masonry.js" type="text/javascript"></script>
+    
+  <!-- Medium Zoom JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/zoom.js"></script>
+
+  <!-- Bootstrap Table -->
+  <script defer src="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.js"></script>
+
+  <!-- Load Common JS -->
+  <script src="/assets/js/no_defer.js"></script>
+  <script defer src="/assets/js/common.js"></script>
+  <script defer src="/assets/js/copy_code.js" type="text/javascript"></script>
+
+    
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    
+    
+
+<!-- Scrolling Progress Bar -->
+<script type="text/javascript">
+  /*
+   * This JavaScript code has been adapted from the article 
+   * https://css-tricks.com/reading-position-indicator/ authored by Pankaj Parashar, 
+   * published on the website https://css-tricks.com on the 7th of May, 2014.
+   * Couple of changes were made to the original code to make it compatible 
+   * with the `al-foio` theme.
+   */
+  const progressBar = $("#progress");
+  /*
+   * We set up the bar after all elements are done loading.
+   * In some cases, if the images in the page are larger than the intended
+   * size they'll have on the page, they'll be resized via CSS to accomodate
+   * the desired size. This mistake, however, breaks the computations as the
+   * scroll size is computed as soon as the elements finish loading.
+   * To account for this, a minimal delay was introduced before computing the
+   * values.
+   */
+  window.onload = function () {
+    setTimeout(progressBarSetup, 50);
+  };
+  /*
+   * We set up the bar according to the browser.
+   * If the browser supports the progress element we use that.
+   * Otherwise, we resize the bar thru CSS styling
+   */
+  function progressBarSetup() {
+    if ("max" in document.createElement("progress")) {
+      initializeProgressElement();
+      $(document).on("scroll", function() {
+        progressBar.attr({ value: getCurrentScrollPosition() });
+      });
+      $(window).on("resize", initializeProgressElement);
+    } else {
+      resizeProgressBar();
+      $(document).on("scroll", resizeProgressBar);
+      $(window).on("resize", resizeProgressBar);
+    }
+  }
+  /*
+   * The vertical scroll position is the same as the number of pixels that
+   * are hidden from view above the scrollable area. Thus, a value > 0 is
+   * how much the user has scrolled from the top
+   */
+  function getCurrentScrollPosition() {
+    return $(window).scrollTop();
+  }
+
+  function initializeProgressElement() {
+    let navbarHeight = $("#navbar").outerHeight(true);
+    $("body").css({ "padding-top": navbarHeight });
+    $("progress-container").css({ "padding-top": navbarHeight });
+    progressBar.css({ top: navbarHeight });
+    progressBar.attr({
+      max: getDistanceToScroll(),
+      value: getCurrentScrollPosition(),
+    });
+  }
+  /*
+   * The offset between the html document height and the browser viewport
+   * height will be greater than zero if vertical scroll is possible.
+   * This is the distance the user can scroll
+   */
+  function getDistanceToScroll() {
+    return $(document).height() - $(window).height();
+  }
+
+  function resizeProgressBar() {
+    progressBar.css({ width: getWidthPercentage() + "%" });
+  }
+  // The scroll ratio equals the percentage to resize the bar
+  function getWidthPercentage() {
+    return (getCurrentScrollPosition() / getDistanceToScroll()) * 100;
+  }
+</script>
+
+  </body>
+</html>

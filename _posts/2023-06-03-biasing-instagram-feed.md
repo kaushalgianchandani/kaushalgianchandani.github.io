@@ -5,7 +5,7 @@ date: 2023-06-03 14:17:00
 description: a (moderately) data-driven exploration of social media anxiety
 tags: how-to, personal, social-media, fomo
 categories: personal
-thumbnail: assets/img/9.jpg
+thumbnail: assets/img/fig_coolness_index_biased.png
 ---
 Have you ever felt that nagging fear of missing out, known as FOMO (Fear Of Missing Out)? Well, I've been battling with it for quite some time too. But guess what? I thought of an unconventional solution to tackle FOMO head-on — statistics! I know it sounds bizarre, but hear me out. In this blog post, we'll dive into the world of FOMO, attempt to quantify the rather nuanced world of social media feeds, and explore a data-driven approach to decode this modern anxiety.
 

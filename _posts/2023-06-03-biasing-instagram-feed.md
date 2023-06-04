@@ -28,7 +28,7 @@ To quantify this, let's embark on a thought experiment. If we randomly followed 
 
 To determine the average income, we can analyze income tax returns filed by individuals in India. By fitting the relative frequency of Average Gross Total Income to a power law distribution, we observe that while many people earn modest amounts, only a handful make tonnes of money.
 
-Regarding BMI, it is commonly assumed to be randomly distributed around the value of 23, indicating that a large majority of the population has an appropriate weight for their height, with fewer individuals either underweight or overweight. However, with the obesity epidemic, this distribution is likely changing as you read this.
+Regarding BMI, it is commonly assumed to be normally distributed around the value of 23, indicating that a large majority of the population has an appropriate weight for their height, with fewer individuals either underweight or overweight. However, with the obesity epidemic, this distribution is likely changing as you read this.
 
 Based on the aforementioned data, the income and BMI distributions of the 1000 people we randomly follow might appear as illustrated below:
 

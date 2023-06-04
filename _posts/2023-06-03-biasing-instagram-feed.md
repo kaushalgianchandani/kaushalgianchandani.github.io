@@ -34,7 +34,7 @@ Based on the aforementioned data, the income and BMI distributions of the 1000 p
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/fig_income_bmi_hist_unbiased.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.html path="assets/img/fig_income_bmi_hist_unbiased.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -53,13 +53,13 @@ You can estimate the coolness index of your posts $$C$$ by calculating a log of 
 
 | BMI        | $$B$$ |
 | ---------- | ----- |
-| < 15       | 0     |
-| 15 to 17.9 | 1     |
-| 18 to 20.9 | 2     |
-| 21 to 23.9 | 3     |
-| 24 to 26.9 | 2     |
-| 27 to 29.9 | 1     |
-| > 30       | 0     |
+| < 15       | 3     |
+| 15 to 17.9 | 2     |
+| 18 to 20.9 | 1     |
+| 21 to 23.9 | 0     |
+| 24 to 26.9 | 1     |
+| 27 to 29.9 | 2     |
+| > 30       | 3     |
 | ---------- | ----- |
 
 <div class="caption">
@@ -82,7 +82,7 @@ However, our behavior on social media is far from random and not even close to r
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/fig_income_bmi_hist_biased.png" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.html path="assets/img/fig_income_bmi_hist_biased.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">

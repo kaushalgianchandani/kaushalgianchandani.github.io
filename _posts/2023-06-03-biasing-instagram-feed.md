@@ -7,7 +7,7 @@ tags: how-to, personal, social-media, fomo
 categories: personal
 thumbnail: assets/img/fig_coolness_index_biased.png
 ---
-Have you ever felt that nagging fear of missing out, known as FOMO? Well, I've been battling with it for quite some time too. But guess what? I thought of an unconventional solution to tackle FOMO head-on — statistics! I know it sounds bizarre, but hear me out. In this blog post, we'll dive into the world of FOMO, attempt to quantify the rather nuanced world of social media feeds, and explore a data-driven approach to decode this modern anxiety.
+Have you ever felt that nagging fear of missing out, known as FOMO (Fear Of Missing Out)? Well, I've been battling with it for quite some time too. But guess what? I thought of an unconventional solution to tackle FOMO head-on — statistics! I know it sounds bizarre, but hear me out. In this blog post, we'll dive into the world of FOMO, attempt to quantify the rather nuanced world of social media feeds, and explore a data-driven approach to decode this modern anxiety.
 
 First things first, let's break down what FOMO really is. While 'fear' is right there in the acronym, I see it more as an anxiety response. Let's draw a comparison between fear and anxiety: fear triggers the fight-or-flight response, while anxiety simply makes us feel uncomfortable. Urban Dictionary agrees with me and describes FOMO as a form of social anxiety — a compulsive concern that we might miss out on exciting opportunities or events, often triggered by social media posts.
 
@@ -43,15 +43,15 @@ Based on the aforementioned data, the income and BMI distributions of the 1000 p
 
 These distributions convey a wealth of information, but they can be overwhelming. To simplify matters, let's introduce a scale for assessing the "coolness" of our feed. We can assign a coolness index, denoted as $$C$$ to each post based on the individual's income and their BMI compared to those we are following. The coolness index can be calculated as follows:
 
-$$C = I + |3 - B|$$
+$$C = I + 3 - |B|$$
 
 Here, $$I$$ score represents the logarithm base 10 of the annual income, while $$B$$ reflects the deviation of the individual's BMI from the mode of the BMI distribution of the 1000 people we follow. The mode is determined as the most frequently occurring value in the distribution.
 
-To put it simplify, if you wish to determine the anticipated level of coolness for any random post you make, you can assign it a score based on your annual income and BMI in comparison to those you follow. It's important to note that this scoring is associated with the specific year the content was created. For example, if you have a moderately athletic physique, your $$B$$ would be 0, and if you earn 10 lakhs per year, your $$I$$ would be 6. According to the formula, your post would be expected to receive a coolness index ranking of 9.
+To put it simplify, if you wish to determine the anticipated level of coolness for any random post you make, you can assign it a score based on your annual income and BMI in comparison to those you follow. It's important to note that this scoring is associated with the specific year the content was created. For example, if you have a moderately athletic physique, your $$B$$ would be 0, and if you earn 10 lakhs per year, your $$I$$ score would be 6. According to the formula, your post would be expected to receive a coolness index ranking of 9.
 
-You can estimate the coolness index of your posts $$C$$ by calculating a log of your annual income in the year when the post was curated [just type log10(_your income_) on Google] and for your $$B$$ refer to the table below:
+You can estimate the coolness index of your posts $$C$$ by calculating a log of your annual income in the year when the post was curated [just type log10(_your income_) on Google] and for your $$\vert B \vert$$ refer to the table below:
 
-| BMI        | $$B$$ |
+| BMI        | $$\vert B \vert$$ |
 | ---------- | ----- |
 | < 15       | 3     |
 | 15 to 17.9 | 2     |
@@ -60,7 +60,6 @@ You can estimate the coolness index of your posts $$C$$ by calculating a log of 
 | 24 to 26.9 | 1     |
 | 27 to 29.9 | 2     |
 | > 30       | 3     |
-| ---------- | ----- |
 
 <div class="caption">
     Table 1. Approximate values of B based on BMI

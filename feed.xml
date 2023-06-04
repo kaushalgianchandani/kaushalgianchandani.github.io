@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://kaushalgianchandani.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kaushalgianchandani.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-03T21:54:03+00:00</updated><id>https://kaushalgianchandani.github.io/feed.xml</id><title type="html">Kaushal Gianchandani</title><subtitle>Kaushal Gianchandani&apos;s personal webpage.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://kaushalgianchandani.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kaushalgianchandani.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-06-04T06:35:10+00:00</updated><id>https://kaushalgianchandani.github.io/feed.xml</id><title type="html">Kaushal Gianchandani</title><subtitle>Kaushal Gianchandani&apos;s personal webpage.
 </subtitle><entry><title type="html">Conquering FOMO with Statistics</title><link href="https://kaushalgianchandani.github.io/blog/2023/biasing-instagram-feed/" rel="alternate" type="text/html" title="Conquering FOMO with Statistics" /><published>2023-06-03T14:17:00+00:00</published><updated>2023-06-03T14:17:00+00:00</updated><id>https://kaushalgianchandani.github.io/blog/2023/biasing-instagram-feed</id><content type="html" xml:base="https://kaushalgianchandani.github.io/blog/2023/biasing-instagram-feed/"><![CDATA[<p>Have you ever felt that nagging fear of missing out, known as FOMO (Fear Of Missing Out)? Well, I’ve been battling with it for quite some time too. But guess what? I thought of an unconventional solution to tackle FOMO head-on — statistics! I know it sounds bizarre, but hear me out. In this blog post, we’ll dive into the world of FOMO, attempt to quantify the rather nuanced world of social media feeds, and explore a data-driven approach to decode this modern anxiety.</p>
 
 <p>First things first, let’s break down what FOMO really is. While ‘fear’ is right there in the acronym, I see it more as an anxiety response. Let’s draw a comparison between fear and anxiety: fear triggers the fight-or-flight response, while anxiety simply makes us feel uncomfortable. Urban Dictionary agrees with me and describes FOMO as a form of social anxiety — a compulsive concern that we might miss out on exciting opportunities or events, often triggered by social media posts.</p>
@@ -38,7 +38,7 @@
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/fig_income_bmi_hist_unbiased.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+    <img src="/assets/img/fig_income_bmi_hist_unbiased.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
 
   </picture>
 
@@ -70,31 +70,31 @@
   <tbody>
     <tr>
       <td>&lt; 15</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>15 to 17.9</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>18 to 20.9</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>21 to 23.9</td>
       <td>3</td>
     </tr>
     <tr>
-      <td>24 to 26.9</td>
+      <td>15 to 17.9</td>
       <td>2</td>
     </tr>
     <tr>
-      <td>27 to 29.9</td>
+      <td>18 to 20.9</td>
       <td>1</td>
     </tr>
     <tr>
-      <td>&gt; 30</td>
+      <td>21 to 23.9</td>
       <td>0</td>
+    </tr>
+    <tr>
+      <td>24 to 26.9</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>27 to 29.9</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>&gt; 30</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -144,7 +144,7 @@
     
 
     <!-- Fallback to the original file -->
-    <img src="/assets/img/fig_income_bmi_hist_biased.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" data-zoomable="" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+    <img src="/assets/img/fig_income_bmi_hist_biased.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
 
   </picture>
 

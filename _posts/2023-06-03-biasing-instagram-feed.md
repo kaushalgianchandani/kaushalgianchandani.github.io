@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  Conquering FOMO with Statistics
+title:  Conquering FOMO with statistics
 date: 2023-06-03 14:17:00
-description: a (moderately) data-driven exploration of social media anxiety
+description: a moderately data-driven exploration of social media anxiety
 tags: how-to, personal, social-media, fomo
 categories: personal
 thumbnail: assets/img/fig_coolness_index_biased.png

@@ -11,10 +11,10 @@ nav_order: 1
 
 - **Role of aspect ratio in determining the surface ocean transport during the Cretaceous.**
  Mentored Sagi Maor (B.Sc. student at HUJI) for a project in paleo-oceanography from Nov 2021 - Oct 2022.
-- **Mathematical methods in scientific models**. Teaching assistant for fall semester 2020. [[lecture notes]](https://kaushalgianchandani.github.io/assets/pdf/mm.pdf)
+- **Mathematical methods in scientific models**. Teaching assistant for fall semester 2020. <a href = "https://kaushalgianchandani.github.io/assets/pdf/mm.pdf" target="_blank">[lecture notes]</a>
 
 <br>
 #### Young Data Scientists League (YDSL) 2022
 
-- **How might we encourage teens/pre-teens to be mentally and physically healthy?** Mentored 15 high school students from Jan - Apr 2022. [[project outline]](https://kaushalgianchandani.github.io/assets/pdf/Project1_KG_AT.pdf)
-- **How might we find music that benefits mental health?** Mentored 15 high school students from Jan - Apr 2022. [[project outline]](https://kaushalgianchandani.github.io/assets/pdf/Project2_KG_AT.pdf)
+- **How might we encourage teens/pre-teens to be mentally and physically healthy?** Mentored 15 high school students from Jan - Apr 2022. <a href = "https://kaushalgianchandani.github.io/assets/pdf/Project1_KG_AT.pdf" target="_blank">[project outline]</a>
+- **How might we find music that benefits mental health?** Mentored 15 high school students from Jan - Apr 2022. <a href = "https://kaushalgianchandani.github.io/assets/pdf/Project2_KG_AT.pdf" target="_blank">[project outline]</a>

@@ -177,12 +177,12 @@ external_sources:
 collections:
   news:
     defaults:
-      layout: post
+    layout: post
     output: true
     permalink: /news/:path/
-  projects:
-    output: true
-    permalink: /projects/:path/
+  # projects:
+    # output: false
+    # permalink: /projects/:path/
 
 announcements:
   enabled: true

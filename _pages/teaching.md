@@ -34,7 +34,7 @@ nav_order: 1
   <tr>
     <td>Mathematical methods in scientific models <br> <i>Teaching Assitant</i></td>
     <td>Fall semester 2020</td>
-    <td> <a href = "https://kaushalgianchandani.github.io/assets/pdf/mm.pdf" target="_blank">lecture notes</a> </td>
+    <td> <a href = "https://kaushalgianchandani.github.io/assets/pdf/Syl_math_methods_eng.pdf" target="_blank">syllabus</a>, <a href = "https://kaushalgianchandani.github.io/assets/pdf/mm.pdf" target="_blank">notes</a> </td>
   </tr>
 </table>
 

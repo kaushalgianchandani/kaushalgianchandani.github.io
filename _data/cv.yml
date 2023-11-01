@@ -4,17 +4,19 @@
     - name: Full Name
       value: Kaushal Gianchandani
     - name: Email
-      value: kaushal.g@mail.huji.ac.il
+      value: kaushalg@mit.edu
 #    - name: Languages
 #      value: English, German
 
 - title: Work Experience
   type: time_table
   contents:
-    - title: Postdoctoral Associate 
-       institution: Department of Earth, Atmospheric, and Planetary Sciences, Massachusetts Institute of Technology
-        year: Sep 2023 - 
-        description:
+    - title: Postdoctoral Associate
+      institution: Dept. of Earth, Atmospheric, and Planetary Sciences (EAPS), Massachusetts Institute of Technology (MIT)
+      year: Sep 2023 - present
+      description:
+        # - Description 1.
+        # - Description 2.
     - title: Teaching Assistant
       institution: Institute of Earth Sciences, Hebrew University of Jerusalem
       year: Oct 2020 - Jan 2021
@@ -25,13 +27,6 @@
         #   contents:
         #     - Sub-description 1.
         #     - Sub-description 2.
-#     - title: Visiting Professor
-#       institution: California Institute of Technology, Pasadena, California, US
-#       year: 1933
-#       description:
-#         - Description 1.
-#         - Description 2.
-#
 #     - title: Director
 #       institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
 #       year: 1917-1933

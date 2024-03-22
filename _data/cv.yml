@@ -85,8 +85,12 @@
 - title: Services
   type: time_table
   contents:
+  - title: Member, Colloquium Committee for the Program in Atmospheres, Oceans and Climate (PAOC) at EAPS, MIT 
+      year: Nov 2023 - May 2024
+      description:  
+
     - title: Member, The Oceanography Society Student Committee
-      year: Sep 2021 - present
+      year: Sep 2021 - Aug 2023
       description: Served on the Coding Resources Subcommittee
 
     - title: Co-chair, Session AI05 in Ocean Science Meeting 2022
@@ -97,7 +101,7 @@
   type: time_table
   contents:
     - title: Registration Grant, Ocean Sciences Meeting 2022
-      year: Sep 2021 - Mar 2023
+      year: Feb - Mar 2022
 
 
 # - title: Open Source Projects

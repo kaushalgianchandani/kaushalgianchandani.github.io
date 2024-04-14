@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <i>Oceanographer | Climatologist</i> #<a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Oceanographer | Climatologist #<a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right

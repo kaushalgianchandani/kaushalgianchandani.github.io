@@ -63,6 +63,14 @@
 - title: Talks
   type: time_table
   contents:
+    - title: Virtual Seminar in Precambrian Geology (Online)
+      year: Jun 2024
+      description: University of California, Riverside, CA, USA
+
+    - title: ROCKE-3D Seminar
+      year: Jun 2024
+      description:  NASA Goddard Institute for Space Studies, New York, NY, USA
+
     - title: Atmospheres and Oceans Seminar
       year: Jan 2021
       description: Johns Hopkins University, Baltimore, MD, USA
@@ -86,7 +94,7 @@
   type: time_table
   contents:
     - title: Member, Colloquium Committee for the Program in Atmospheres, Oceans and Climate (PAOC) at EAPS, MIT 
-      year: Nov 2023 - May 2024
+      year: Nov 2023 - Dec 2024
       description: Coordinated the visit of two speakers to MIT during Spring 2024.
 
     - title: Member, The Oceanography Society Student Committee

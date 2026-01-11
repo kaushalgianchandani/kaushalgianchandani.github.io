@@ -54,9 +54,9 @@
                 <!-- Desktop Menu -->
                 <div class="hidden sm:flex items-center space-x-8">
                     <a href="#about" onclick="showHome()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">About</a>
-                    <!-- <a onclick="showResearch()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">Research</a> -->
+                    <a onclick="showResearch()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">Research</a>
                     <a onclick="showAllPublications()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">Publications</a>
-                    <!-- <a onclick="showBlogList()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">Blog</a> -->
+                    <a onclick="showBlogList()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">Blog</a>
                     <a href="#contact" onclick="showHome()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">Contact</a>
                 </div>
 
@@ -90,9 +90,10 @@
                     <!-- Profile Column (Sticky) -->
                     <div class="w-full md:w-1/3 flex-shrink-0 md:sticky md:top-24">
                         <div class="aspect-square bg-slate-200 rounded-lg overflow-hidden shadow-lg relative group">
-                            <img src="https://ui-avatars.com/api/?name=Kaushal+G&background=0284c7&color=fff&size=512" 
+                            <!-- <img src="https://ui-avatars.com/api/?name=Kaushal+G&background=0284c7&color=fff&size=512"  -->
+                            <img src="images/headshot_kaushal.jpg"
                                  alt="Kaushal Gianchandani" 
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                                 class="w-full h-full object-cover">
                         </div>
                         
                         <!-- Social Icons -->
@@ -123,19 +124,21 @@
                         <div class="prose-text text-slate-600 max-w-3xl">
                         <p class="mb-4">
                             I am an oceanographer by training who is currently employed as a NASA Postdoctoral Program (NPP) Fellow at 
-                            the Goddard Institute of Space Studies (GISS).
+                            the <a href="https://www.giss.nasa.gov/" target="_blank" class="academic-link">Goddard Institute of Space Studies (GISS)</a>.
                         </p>
 
                         <p class="mb-4">
-                            My research focuses on ocean circulation in ice-covered moons in our solar system, e.g., Europa and Enceladus. 
-                            I use state-of-the-art ocean circulation model, to study how material from the seafloor, including potential biosignatures from 
-                            hydrothermal activity, is transported through subsurface oceans to the moon's surface, where it may be accessible to spacecraft 
-                            observations.
+                            My research focuses on better understanding the ocean's role on Earth and applying this knowledge to celestial bodies 
+                            that may potentially have oceans. Currently, I am investigating the ocean circulation under ice-covered moons in our 
+                            solar system, e.g., Europa and Enceladus. Specifically, I use state-of-the-art numerical models, to study how material 
+                            from the seafloor, including potential biosignatures from hydrothermal activity, is transported through subsurface 
+                            oceans to the moon's surface, where it may be accessible to spacecraft observations.
                         </p>
 
                         <p>
-                            I received my PhD from the Hebrew University of Jerusalem, where my research focused on the role of oceans in regulating extreme 
-                            climates in Earth’s history, particularly the Neoproterozoic snowball Earth events and the Cretaceous greenhouse climate.
+                            I received my PhD from the <a href="https://en.huji.ac.il/" target="_blank" class="academic-link">Hebrew University of Jerusalem</a>,
+                            where my research focused on the ocean circulation during the Neoproterozoic `snowball' Earth events and the Cretaceous 
+                            greenhouse climate.
                         </p>
 </div>
 
@@ -309,34 +312,50 @@
             researchView.classList.add('hidden');
         }
 
-        function showHome() {
+        // View Functions - Now they handle logic AND History
+        function showHome(updateHistory = true) {
             hideAllViews();
             mainView.classList.remove('hidden');
             contactSection.classList.remove('hidden');
             window.scrollTo(0,0);
+            if (updateHistory) {
+                // Clear hash without reload
+                history.pushState(null, null, ' '); 
+            }
         }
 
-        function showBlogList() {
+        function showBlogList(updateHistory = true) {
             hideAllViews();
             blogListView.classList.remove('hidden');
             contactSection.classList.remove('hidden');
             window.scrollTo(0,0);
+            if (updateHistory) window.location.hash = 'blog';
         }
 
-        function showAllPublications() {
+        function showAllPublications(updateHistory = true) {
             hideAllViews();
             allPubsView.classList.remove('hidden');
             contactSection.classList.remove('hidden');
             window.scrollTo(0,0);
+            if (updateHistory) window.location.hash = 'publications';
         }
 
         // Deep linking function for research items
-        function showResearch(index) {
+        function showResearch(index, updateHistory = true) {
             hideAllViews();
             researchView.classList.remove('hidden');
             contactSection.classList.remove('hidden');
             
-            // If an index is provided, scroll to that specific item
+            // Set URL
+            if (updateHistory) {
+                if (typeof index !== 'undefined' && index !== null) {
+                    window.location.hash = 'research-' + index;
+                } else {
+                    window.location.hash = 'research';
+                }
+            }
+
+            // Scroll Logic
             if (typeof index !== 'undefined' && index !== null) {
                 setTimeout(() => {
                     const element = document.getElementById(`research-item-${index}`);
@@ -357,9 +376,11 @@
             }
         }
 
-        function readPost(index) {
+        function readPost(index, updateHistory = true) {
             hideAllViews();
             const post = blogPosts[index];
+            if (!post) { showBlogList(); return; } // Safety check
+
             document.getElementById('post-title').textContent = post.title;
             document.getElementById('post-date').textContent = post.date;
             document.getElementById('post-content').innerHTML = post.content;
@@ -368,7 +389,36 @@
             singlePostView.classList.remove('hidden');
             contactSection.classList.add('hidden');
             window.scrollTo(0,0);
+            
+            if (updateHistory) window.location.hash = 'post-' + index;
         }
+
+        // ROUTER: Handle Refresh & Back Button
+        function handleHashChange() {
+            const hash = window.location.hash;
+            
+            if (hash === '#blog') {
+                showBlogList(false);
+            } else if (hash === '#publications') {
+                showAllPublications(false);
+            } else if (hash.startsWith('#research')) {
+                const parts = hash.split('-');
+                const index = parts.length > 1 ? parseInt(parts[1]) : null;
+                showResearch(index, false);
+            } else if (hash.startsWith('#post-')) {
+                const index = parseInt(hash.replace('#post-', ''));
+                if (!isNaN(index)) readPost(index, false);
+            } else {
+                // Default to home if hash is empty or unknown
+                showHome(false);
+            }
+        }
+
+        // Listen for browser navigation (Back/Forward)
+        window.addEventListener('hashchange', handleHashChange);
+        
+        // Listen for initial load (Refresh)
+        window.addEventListener('DOMContentLoaded', handleHashChange);
 
 
         // ==========================================

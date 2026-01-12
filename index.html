@@ -32,7 +32,16 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+    <!-- Academicons (For Google Scholar, ResearchGate, ORCID, etc.) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <!-- Flaticon Uicons -->
+    <!-- Regular Rounded (fi-rr-) -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <!-- Solid Rounded (fi-sr-) - Required for filled icons like the wave -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+        
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
@@ -45,19 +54,16 @@
             line-height: 1.8; 
             font-size: 1.05rem; 
             text-align: justify; 
-            /* Default Light Mode Color handled by utility classes, but fallback here */
             color: #334155; 
         }
         
-        /* Dark Mode overrides for custom class */
-        .dark .prose-text {
-            color: #cbd5e1; /* slate-300 */
-        }
+        /* Dark Mode overrides */
+        .dark .prose-text { color: #cbd5e1; }
 
         .prose-text p { margin-bottom: 1.5rem; }
         .prose-text h3 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
-        .dark .prose-text h3 { color: #f1f5f9; } /* slate-100 */
-        .prose-text h3 { color: #1e293b; } /* slate-800 */
+        .dark .prose-text h3 { color: #f1f5f9; }
+        .prose-text h3 { color: #1e293b; }
 
         .prose-text ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
         .prose-text li { margin-bottom: 0.5rem; }
@@ -73,7 +79,7 @@
         .academic-link:hover { color: #0369a1; text-decoration: underline; }
         .dark .academic-link:hover { color: #7dd3fc; }
         
-        /* Fade animation for page switching */
+        /* Fade animation */
         .fade-in { animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -337,11 +343,13 @@
             }
         }
 
+        // Updated social links to use Academicons classes (ai ai-...)
+        // This ensures your Google Scholar and ORCID logos render using the library we added.
         const socialLinks = [
-            { title: "Google Scholar", url: "https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en", icon: "fas fa-graduation-cap", hoverClass: "hover:text-[#4285F4]" },
+            { title: "Google Scholar", url: "https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en", icon: "ai ai-google-scholar", hoverClass: "hover:text-[#4285F4]" },
             { title: "GitHub", url: "https://github.com/kaushalgianchandani", icon: "fab fa-github", hoverClass: "hover:text-black dark:hover:text-white" },
-            { title: "ResearchGate", url: "https://www.researchgate.net/profile/Kaushal-Gianchandani", icon: "fab fa-researchgate", hoverClass: "hover:text-[#00CCBB]" },
-            { title: "ORCID", url: "https://orcid.org/0000-0002-8377-759X", icon: "fab fa-orcid", hoverClass: "hover:text-[#A6CE39]" },
+            { title: "ResearchGate", url: "https://www.researchgate.net/profile/Kaushal-Gianchandani", icon: "ai ai-researchgate", hoverClass: "hover:text-[#00CCBB]" },
+            { title: "ORCID", url: "https://orcid.org/0000-0002-8377-759X", icon: "ai ai-orcid", hoverClass: "hover:text-[#A6CE39]" },
             { title: "LinkedIn", url: "https://www.linkedin.com/in/kaushalgianchandani/", icon: "fab fa-linkedin", hoverClass: "hover:text-[#0077B5]" }
         ];
 
@@ -454,17 +462,24 @@
         window.addEventListener('hashchange', handleHashChange);
         window.addEventListener('DOMContentLoaded', handleHashChange);
 
+        // ==========================================
         // 3. RENDER LOGIC
-        const socialContainer = document.getElementById('social-icons-container');
-        if (socialContainer && typeof socialLinks !== 'undefined') {
-            socialContainer.innerHTML = socialLinks.map(link => `
-                <a href="${link.url}" target="_blank" class="text-slate-400 dark:text-slate-500 ${link.hoverClass} transition text-2xl" title="${link.title}">
-                    <i class="${link.icon} fa-fw"></i>
-                </a>
-            `).join('');
+        // ==========================================
+
+        function renderSocialIcons() {
+            const socialContainer = document.getElementById('social-icons-container');
+            if (socialContainer && typeof socialLinks !== 'undefined') {
+                socialContainer.innerHTML = socialLinks.map(link => `
+                    <a href="${link.url}" target="_blank" class="text-slate-400 dark:text-slate-500 ${link.hoverClass} transition text-2xl" title="${link.title}">
+                        <i class="${link.icon} fa-fw"></i>
+                    </a>
+                `).join('');
+            }
         }
 
-        if (typeof researchInterests !== 'undefined') {
+        function renderResearch() {
+            if (typeof researchInterests === 'undefined') return;
+            
             const researchPreviewContainer = document.getElementById('research-preview-container');
             const researchFullContainer = document.getElementById('research-full-container');
             
@@ -497,7 +512,9 @@
             });
         }
 
-        if (typeof publications !== 'undefined') {
+        function renderPublications() {
+            if (typeof publications === 'undefined') return;
+            
             const selectedContainer = document.getElementById('selected-publications-list');
             const allPubsContainer = document.getElementById('all-publications-container');
 
@@ -546,7 +563,9 @@
             });
         }
 
-        if (typeof blogPosts !== 'undefined' && blogPosts.length > 0) {
+        function renderBlog() {
+            if (typeof blogPosts === 'undefined' || blogPosts.length === 0) return;
+            
             const blogPreviewContainer = document.getElementById('blog-preview-container');
             const blogIndexContainer = document.getElementById('blog-index-container');
             document.getElementById('blog-preview-container').parentElement.parentElement.classList.remove('hidden');
@@ -584,6 +603,13 @@
                 `;
             });
         }
+
+        // Initialize Rendering
+        renderSocialIcons();
+        renderResearch();
+        renderPublications();
+        renderBlog();
+
     </script>
 </body>
 </html>

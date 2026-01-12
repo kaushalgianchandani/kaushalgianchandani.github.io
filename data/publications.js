@@ -9,7 +9,7 @@ const publications = [
         pages: "096608",
         doi: "10.1063/5.0226883",
         link: "https://doi.org/10.1063/5.0226883", 
-        pdf: "https://pubs.aip.org/aip/pof/article-pdf/doi/10.1063/5.0194042/19699352/026617_1_5.0194042.pdf" 
+        pdf: "https://pubs.aip.org/aip/pof/article-pdf/doi/10.1063/5.0226883/20161771/096608_1_5.0226883.pdf" 
     },
     {
         year: "2024",
@@ -59,7 +59,7 @@ const publications = [
         link: "https://os.copernicus.org/articles/17/351/2021/",
         pdf: "https://os.copernicus.org/articles/17/351/2021/os-17-351-2021.pdf" 
     },
-     {
+    {
         year: "2020",
         selected: false,
         title: "Statistical tests for the distribution of surface wind and current speeds across the globe",

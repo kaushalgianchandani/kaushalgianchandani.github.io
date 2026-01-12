@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaushal Gianchandani</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS with Dark Mode Config -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Theme Initialization Script (Prevents Flash) -->
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,67 +37,92 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
-        h1, h2, h3 { font-family: 'Merriweather', serif; color: #0f172a; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Merriweather', serif; }
         
-        /* Typography for Long Form Content - Justified */
+        /* Typography for Long Form Content */
         .prose-text { 
             line-height: 1.8; 
             font-size: 1.05rem; 
-            color: #334155; 
             text-align: justify; 
+            /* Default Light Mode Color handled by utility classes, but fallback here */
+            color: #334155; 
         }
+        
+        /* Dark Mode overrides for custom class */
+        .dark .prose-text {
+            color: #cbd5e1; /* slate-300 */
+        }
+
         .prose-text p { margin-bottom: 1.5rem; }
-        .prose-text h3 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: #1e293b; }
+        .prose-text h3 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+        .dark .prose-text h3 { color: #f1f5f9; } /* slate-100 */
+        .prose-text h3 { color: #1e293b; } /* slate-800 */
+
         .prose-text ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
         .prose-text li { margin-bottom: 0.5rem; }
-        .prose-text strong { font-weight: 600; color: #0f172a; }
+        .prose-text strong { font-weight: 600; }
+        .dark .prose-text strong { color: #f8fafc; }
+        .prose-text strong { color: #0f172a; }
+
         .prose-text img { max-width: 100%; border-radius: 0.5rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
         
-        html { scroll-behavior: smooth; }
+        /* Academic Link Styles */
         .academic-link { color: #0284c7; text-decoration: none; transition: color 0.2s; }
+        .dark .academic-link { color: #38bdf8; }
         .academic-link:hover { color: #0369a1; text-decoration: underline; }
+        .dark .academic-link:hover { color: #7dd3fc; }
         
         /* Fade animation for page switching */
         .fade-in { animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 transition-colors duration-300">
 
     <!-- NAVIGATION -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 dark:bg-slate-900/90 dark:border-b dark:border-slate-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="#" onclick="showHome()" class="text-xl font-bold text-slate-800 tracking-tight cursor-pointer">Kaushal Gianchandani</a>
+                    <a href="#" onclick="showHome()" class="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight cursor-pointer">Kaushal Gianchandani</a>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden sm:flex items-center space-x-8">
-                    <a href="#about" onclick="showHome()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">About</a>
-                    <a onclick="showResearch()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">Research</a>
-                    <a onclick="showAllPublications()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">Publications</a>
-                    <a onclick="showBlogList()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">Blog</a>
-                    <a onclick="showContact()" class="text-slate-600 hover:text-sky-700 font-medium text-sm uppercase tracking-wide cursor-pointer">Contact</a>
+                    <a href="#about" onclick="showHome()" class="text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-400 font-medium text-sm uppercase tracking-wide cursor-pointer transition-colors">About</a>
+                    <a onclick="showResearch()" class="text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-400 font-medium text-sm uppercase tracking-wide cursor-pointer transition-colors">Research</a>
+                    <a onclick="showAllPublications()" class="text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-400 font-medium text-sm uppercase tracking-wide cursor-pointer transition-colors">Publications</a>
+                    <a onclick="showBlogList()" class="text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-400 font-medium text-sm uppercase tracking-wide cursor-pointer transition-colors">Blog</a>
+                    <a onclick="showContact()" class="text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-400 font-medium text-sm uppercase tracking-wide cursor-pointer transition-colors">Contact</a>
+                    
+                    <!-- Dark Mode Toggle (Desktop) -->
+                    <button onclick="toggleTheme()" class="p-2 rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline text-yellow-400"></i>
+                    </button>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="flex items-center sm:hidden">
-                    <button onclick="toggleMenu()" class="text-slate-500 hover:text-slate-700 focus:outline-none">
+                <!-- Mobile Menu Button & Toggle -->
+                <div class="flex items-center gap-4 sm:hidden">
+                    <button onclick="toggleTheme()" class="p-2 text-slate-500 dark:text-slate-400 focus:outline-none">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline text-yellow-400"></i>
+                    </button>
+                    <button onclick="toggleMenu()" class="text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 focus:outline-none">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden sm:hidden bg-white border-t">
+        <div id="mobile-menu" class="hidden sm:hidden bg-white border-t dark:bg-slate-900 dark:border-slate-800">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#about" onclick="showHome()" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50">About</a>
-                <a onclick="showResearch()" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 cursor-pointer">Research</a>
-                <a onclick="showAllPublications()" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 cursor-pointer">Publications</a>
-                <a onclick="showBlogList()" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 cursor-pointer">Blog</a>
-                <a onclick="showContact()" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 cursor-pointer">Contact</a>
+                <a href="#about" onclick="showHome()" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">About</a>
+                <a onclick="showResearch()" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md cursor-pointer">Research</a>
+                <a onclick="showAllPublications()" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md cursor-pointer">Publications</a>
+                <a onclick="showBlogList()" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md cursor-pointer">Blog</a>
+                <a onclick="showContact()" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md cursor-pointer">Contact</a>
             </div>
         </div>
     </nav>
@@ -84,12 +131,12 @@
     <main id="main-view" class="flex-grow fade-in">
         
         <!-- HERO / ABOUT SECTION -->
-        <section id="about" class="py-16 sm:py-24 bg-white">
+        <section id="about" class="py-16 sm:py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-start gap-12">
                     <!-- Profile Column (Sticky) -->
                     <div class="w-full md:w-1/3 flex-shrink-0 md:sticky md:top-24">
-                        <div class="aspect-square bg-slate-200 rounded-lg overflow-hidden shadow-lg relative group">
+                        <div class="aspect-square bg-slate-200 dark:bg-slate-800 rounded-lg overflow-hidden shadow-lg relative group">
                             <!-- Ensure you have your image at images/headshot_kaushal.jpg -->
                             <img src="images/headshot_kaushal.jpg" 
                                  alt="Kaushal Gianchandani" 
@@ -105,10 +152,10 @@
 
                     <!-- Bio Text -->
                     <div class="w-full md:w-2/3">
-                        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-2">Kaushal Gianchandani</h1>
-                        <p class="text-xl text-sky-700 font-medium mb-6">NASA Postdoctoral Fellow at GISS</p>
+                        <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl mb-2">Kaushal Gianchandani</h1>
+                        <p class="text-xl text-sky-700 dark:text-sky-400 font-medium mb-6">NASA Postdoctoral Fellow at GISS</p>
                         
-                        <div class="prose-text text-slate-600 max-w-3xl">
+                        <div class="prose-text text-slate-600 dark:text-slate-300 max-w-3xl">
                             <p class="mb-4">
                                 I am an oceanographer by training who is currently employed as a NASA Postdoctoral Program (NPP) Fellow at 
                                 the <a href="https://www.giss.nasa.gov/" target="_blank" class="academic-link">Goddard Institute of Space Studies (GISS)</a>.
@@ -134,11 +181,11 @@
         </section>
 
         <!-- RESEARCH INTERESTS (Homepage Preview) -->
-        <section id="research-preview" class="hidden py-16 bg-slate-50 border-y border-slate-200">
+        <section id="research-preview" class="hidden py-16 bg-slate-50 border-y border-slate-200 dark:bg-slate-900 dark:border-slate-800 transition-colors duration-300">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-end justify-between mb-8">
-                    <h2 class="text-3xl font-bold text-slate-800">Research Interests</h2>
-                    <button onclick="showResearch()" class="text-sm font-bold text-sky-600 hover:text-sky-800 hover:underline">
+                    <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100">Research Interests</h2>
+                    <button onclick="showResearch()" class="text-sm font-bold text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 hover:underline">
                         Read More &rarr;
                     </button>
                 </div>
@@ -150,11 +197,11 @@
         </section>
     
         <!-- PUBLICATIONS SECTION (Selected Only) -->
-        <section id="publications" class="py-16 bg-white">
+        <section id="publications" class="py-16 bg-white dark:bg-slate-950 transition-colors duration-300">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-end justify-between mb-8">
-                    <h2 class="text-3xl font-bold text-slate-800">Select Publications</h2>
-                    <button onclick="showAllPublications()" class="text-sm font-bold text-sky-600 hover:text-sky-800 hover:underline">
+                    <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100">Select Publications</h2>
+                    <button onclick="showAllPublications()" class="text-sm font-bold text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 hover:underline">
                         View Full List &rarr;
                     </button>
                 </div>
@@ -165,11 +212,11 @@
         </section>
 
         <!-- BLOG TEASER SECTION (Homepage Only) -->
-        <section class="hidden py-16 bg-slate-50 border-t border-slate-200">
+        <section class="hidden py-16 bg-slate-50 border-t border-slate-200 dark:bg-slate-900 dark:border-slate-800 transition-colors duration-300">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-end justify-between mb-8">
-                    <h2 class="text-3xl font-bold text-slate-800">Latest Updates</h2>
-                    <button onclick="showBlogList()" class="text-sm font-bold text-sky-600 hover:text-sky-800 hover:underline">Read Blog &rarr;</button>
+                    <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100">Latest Updates</h2>
+                    <button onclick="showBlogList()" class="text-sm font-bold text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 hover:underline">Read Blog &rarr;</button>
                 </div>
                 
                 <div id="blog-preview-container" class="grid md:grid-cols-3 gap-6">
@@ -181,15 +228,15 @@
     </main>
 
     <!-- 2. RESEARCH INTERESTS VIEW (Full Details) -->
-    <main id="research-view" class="flex-grow hidden fade-in bg-slate-50 min-h-screen">
+    <main id="research-view" class="flex-grow hidden fade-in bg-slate-50 min-h-screen dark:bg-slate-900 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             
-            <button onclick="showHome()" class="mb-8 text-sky-600 hover:text-sky-800 font-medium flex items-center">
+            <button onclick="showHome()" class="mb-8 text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 font-medium flex items-center">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </button>
 
-            <h1 class="text-4xl font-bold text-slate-900 mb-2">Research Interests</h1>
-            <p class="text-slate-600 mb-6">
+            <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Research Interests</h1>
+            <p class="text-slate-600 dark:text-slate-400 mb-6">
                 A brief overview of my research interests.
             </p>
 
@@ -201,55 +248,55 @@
     </main>
     
     <!-- 3. BLOG LIST VIEW (Index) -->
-    <main id="blog-list-view" class="flex-grow hidden fade-in bg-slate-50 min-h-screen">
+    <main id="blog-list-view" class="flex-grow hidden fade-in bg-slate-50 min-h-screen dark:bg-slate-900 transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <button onclick="showHome()" class="mb-8 text-sky-600 hover:text-sky-800 font-medium flex items-center">
+            <button onclick="showHome()" class="mb-8 text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 font-medium flex items-center">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </button>
-            <h1 class="text-4xl font-bold text-slate-900 mb-2">The Scientific Blog</h1>
-            <p class="text-slate-600 mb-12">Musings on oceanography and academic life.</p>
+            <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">The Scientific Blog</h1>
+            <p class="text-slate-600 dark:text-slate-400 mb-12">Musings on oceanography and academic life.</p>
             <div id="blog-index-container" class="space-y-6"></div>
         </div>
     </main>
 
     <!-- 4. SINGLE POST VIEW (Reader) -->
-    <main id="single-post-view" class="flex-grow hidden fade-in bg-white min-h-screen">
-        <div class="h-1 bg-slate-100 w-full fixed top-0 left-0 z-50">
+    <main id="single-post-view" class="flex-grow hidden fade-in bg-white min-h-screen dark:bg-slate-950 transition-colors duration-300">
+        <div class="h-1 bg-slate-100 dark:bg-slate-800 w-full fixed top-0 left-0 z-50">
             <div class="h-full bg-sky-500 w-0" id="reading-progress"></div>
         </div>
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <button onclick="showBlogList()" class="mb-8 text-slate-500 hover:text-sky-700 font-medium flex items-center transition">
+            <button onclick="showBlogList()" class="mb-8 text-slate-500 hover:text-sky-700 dark:text-slate-400 dark:hover:text-sky-400 font-medium flex items-center transition">
                 <i class="fas fa-chevron-left mr-2"></i> Back to All Posts
             </button>
             <article>
                 <header class="mb-8">
                     <div class="flex items-center gap-3 mb-4">
-                        <span id="post-date" class="text-sm font-bold text-sky-600 bg-sky-50 px-3 py-1 rounded-full"></span>
+                        <span id="post-date" class="text-sm font-bold text-sky-600 bg-sky-50 dark:bg-sky-900/30 dark:text-sky-300 px-3 py-1 rounded-full"></span>
                         <div id="post-tags" class="flex gap-2"></div>
                     </div>
-                    <h1 id="post-title" class="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight"></h1>
+                    <h1 id="post-title" class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white leading-tight"></h1>
                 </header>
-                <div id="post-content" class="prose-text text-lg text-slate-700"></div>
+                <div id="post-content" class="prose-text text-lg text-slate-700 dark:text-slate-300"></div>
             </article>
-            <div class="mt-16 pt-8 border-t border-slate-100">
+            <div class="mt-16 pt-8 border-t border-slate-100 dark:border-slate-800">
                 <p class="text-slate-400 italic text-sm">Thanks for reading.</p>
             </div>
         </div>
     </main>
 
     <!-- 5. FULL PUBLICATIONS VIEW -->
-    <main id="all-publications-view" class="flex-grow hidden fade-in bg-white min-h-screen">
+    <main id="all-publications-view" class="flex-grow hidden fade-in bg-white min-h-screen dark:bg-slate-950 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <button onclick="showHome()" class="mb-8 text-sky-600 hover:text-sky-800 font-medium flex items-center">
+            <button onclick="showHome()" class="mb-8 text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 font-medium flex items-center">
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </button>
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
-                    <h1 class="text-4xl font-bold text-slate-900 mb-2">Publications</h1>
-                    <p class="text-slate-600">A chronological list of my publications.</p>
+                    <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Publications</h1>
+                    <p class="text-slate-600 dark:text-slate-400">A chronological list of my publications.</p>
                 </div>
                 <div class="mt-4 md:mt-0">
-                    <a href="https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en" target="_blank" class="text-sm bg-sky-50 text-sky-700 px-4 py-2 rounded-full font-bold hover:bg-sky-100 transition">
+                    <a href="https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en" target="_blank" class="text-sm bg-sky-50 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300 px-4 py-2 rounded-full font-bold hover:bg-sky-100 dark:hover:bg-sky-900/50 transition">
                         <i class="fas fa-external-link-alt mr-2"></i> Google Scholar
                     </a>
                 </div>
@@ -259,7 +306,7 @@
     </main>
 
     <!-- FOOTER / CONTACT -->
-    <footer id="contact" class="py-12 bg-slate-900 text-slate-300">
+    <footer id="contact" class="py-12 bg-slate-900 text-slate-300 border-t dark:border-slate-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex justify-center mb-8">
                 <a href="mailto:kaushalg@mit.edu" class="group flex flex-col items-center hover:text-white transition bg-slate-800 rounded-xl px-10 py-6 hover:bg-slate-700 border border-slate-700">
@@ -274,61 +321,36 @@
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
-    
-    <!-- 0. EXTERNAL DATA LOADING -->
-    <!-- These files should define global variables: publications, researchInterests, blogPosts -->
     <script src="data/publications.js"></script>
     <script src="data/research_interests.js"></script>
     <script src="data/blog_posts.js"></script>
 
     <script>
-        // 0a. SOCIAL ICONS DATA (Configurable List)
-        // Kept inline per request to support rendering icons from a list easily
-        const socialLinks = [
-            { 
-                title: "Google Scholar", 
-                url: "https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en", 
-                icon: "fas fa-graduation-cap", 
-                hoverClass: "hover:text-[#4285F4]" 
-            },
-            { 
-                title: "GitHub", 
-                url: "https://github.com/kaushalgianchandani", 
-                icon: "fab fa-github", 
-                hoverClass: "hover:text-black" 
-            },
-            { 
-                title: "ResearchGate", 
-                url: "https://www.researchgate.net/profile/Kaushal-Gianchandani", 
-                icon: "fab fa-researchgate", 
-                hoverClass: "hover:text-[#00CCBB]" 
-            },
-            { 
-                title: "ORCID", 
-                url: "https://orcid.org/0000-0002-8377-759X", 
-                icon: "fab fa-orcid", 
-                hoverClass: "hover:text-[#A6CE39]" 
-            },
-            { 
-                title: "LinkedIn", 
-                url: "https://www.linkedin.com/in/kaushalgianchandani/", 
-                icon: "fab fa-linkedin", 
-                hoverClass: "hover:text-[#0077B5]" 
+        // DARK MODE TOGGLE LOGIC
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
             }
+        }
+
+        const socialLinks = [
+            { title: "Google Scholar", url: "https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en", icon: "fas fa-graduation-cap", hoverClass: "hover:text-[#4285F4]" },
+            { title: "GitHub", url: "https://github.com/kaushalgianchandani", icon: "fab fa-github", hoverClass: "hover:text-black dark:hover:text-white" },
+            { title: "ResearchGate", url: "https://www.researchgate.net/profile/Kaushal-Gianchandani", icon: "fab fa-researchgate", hoverClass: "hover:text-[#00CCBB]" },
+            { title: "ORCID", url: "https://orcid.org/0000-0002-8377-759X", icon: "fab fa-orcid", hoverClass: "hover:text-[#A6CE39]" },
+            { title: "LinkedIn", url: "https://www.linkedin.com/in/kaushalgianchandani/", icon: "fab fa-linkedin", hoverClass: "hover:text-[#0077B5]" }
         ];
 
-
-        // ==========================================
-        // 1. MOBILE MENU
-        // ==========================================
         function toggleMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // ==========================================
-        // 2. VIEW CONTROLLER (The Brains)
-        // ==========================================
+        // 2. VIEW CONTROLLER
         const mainView = document.getElementById('main-view');
         const blogListView = document.getElementById('blog-list-view');
         const singlePostView = document.getElementById('single-post-view');
@@ -406,134 +428,91 @@
 
         function readPost(index, updateHistory = true) {
             hideAllViews();
-            
-            if (typeof blogPosts === 'undefined' || !blogPosts[index]) {
-                console.warn('Blog post not found or data file not loaded.');
-                showBlogList(); 
-                return; 
-            }
-
+            if (typeof blogPosts === 'undefined' || !blogPosts[index]) { console.warn('Blog post not found'); showBlogList(); return; }
             const post = blogPosts[index];
             document.getElementById('post-title').textContent = post.title;
             document.getElementById('post-date').textContent = post.date;
             document.getElementById('post-content').innerHTML = post.content;
             const tagsContainer = document.getElementById('post-tags');
-            tagsContainer.innerHTML = post.tags.map(tag => `<span class="text-xs font-semibold text-slate-500">#${tag}</span>`).join('');
+            tagsContainer.innerHTML = post.tags.map(tag => `<span class="text-xs font-semibold text-slate-500 dark:text-slate-400">#${tag}</span>`).join('');
             singlePostView.classList.remove('hidden');
             contactSection.classList.add('hidden');
             window.scrollTo(0,0);
-            
             if (updateHistory) window.location.hash = 'post-' + index;
         }
 
-        // ROUTER
         function handleHashChange() {
             const hash = window.location.hash;
-            if (hash === '#blog') {
-                showBlogList(false);
-            } else if (hash === '#publications') {
-                showAllPublications(false);
-            } else if (hash.startsWith('#research')) {
-                const parts = hash.split('-');
-                const index = parts.length > 1 ? parseInt(parts[1]) : null;
-                showResearch(index, false);
-            } else if (hash.startsWith('#post-')) {
-                const index = parseInt(hash.replace('#post-', ''));
-                if (!isNaN(index)) readPost(index, false);
-            } else if (hash === '#contact') {
-                showContact(false);
-            } else {
-                showHome(false);
-            }
+            if (hash === '#blog') showBlogList(false);
+            else if (hash === '#publications') showAllPublications(false);
+            else if (hash.startsWith('#research')) { const parts = hash.split('-'); const index = parts.length > 1 ? parseInt(parts[1]) : null; showResearch(index, false); }
+            else if (hash.startsWith('#post-')) { const index = parseInt(hash.replace('#post-', '')); if (!isNaN(index)) readPost(index, false); }
+            else if (hash === '#contact') showContact(false);
+            else showHome(false);
         }
 
         window.addEventListener('hashchange', handleHashChange);
         window.addEventListener('DOMContentLoaded', handleHashChange);
 
-
-        // ==========================================
         // 3. RENDER LOGIC
-        // ==========================================
-        
-        // 3a. RENDER SOCIAL ICONS (New Feature)
         const socialContainer = document.getElementById('social-icons-container');
         if (socialContainer && typeof socialLinks !== 'undefined') {
             socialContainer.innerHTML = socialLinks.map(link => `
-                <a href="${link.url}" target="_blank" class="text-slate-400 ${link.hoverClass} transition text-2xl" title="${link.title}">
+                <a href="${link.url}" target="_blank" class="text-slate-400 dark:text-slate-500 ${link.hoverClass} transition text-2xl" title="${link.title}">
                     <i class="${link.icon} fa-fw"></i>
                 </a>
             `).join('');
         }
 
-        // 3b. Render Research Interests
         if (typeof researchInterests !== 'undefined') {
             const researchPreviewContainer = document.getElementById('research-preview-container');
             const researchFullContainer = document.getElementById('research-full-container');
             
-            if (researchInterests.length > 0) {
-                document.getElementById('research-preview').classList.remove('hidden');
-            }
+            if (researchInterests.length > 0) document.getElementById('research-preview').classList.remove('hidden');
 
-            // Preview
             researchInterests.slice(0, 3).forEach((item, index) => {
-                // Modified: Handle both string and array for icons
                 const iconArray = Array.isArray(item.icon) ? item.icon : [item.icon];
                 const iconsHtml = iconArray.map(i => `<i class="${i}"></i>`).join('');
-
                 researchPreviewContainer.innerHTML += `
-                    <div onclick="showResearch(${index})" class="bg-white p-6 rounded-lg shadow-sm border border-slate-100 cursor-pointer hover:shadow-md hover:border-sky-200 transition group">
-                        <div class="text-sky-600 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300 flex gap-3">
-                             ${iconsHtml}
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-slate-800 group-hover:text-sky-700 transition">${item.title}</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">${item.summary}</p>
+                    <div onclick="showResearch(${index})" class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700 cursor-pointer hover:shadow-md hover:border-sky-200 dark:hover:border-sky-700 transition group">
+                        <div class="text-sky-600 dark:text-sky-400 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300 flex gap-3">${iconsHtml}</div>
+                        <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100 group-hover:text-sky-700 dark:group-hover:text-sky-400 transition">${item.title}</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">${item.summary}</p>
                     </div>
                 `;
             });
 
-            // Full View
             researchInterests.forEach((item, index) => {
-                // Modified: Handle both string and array for icons
                 const iconArray = Array.isArray(item.icon) ? item.icon : [item.icon];
-                const iconsHtml = iconArray.map(i => `
-                    <div class="w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center text-sky-600 text-xl shrink-0">
-                        <i class="${i}"></i>
-                    </div>
-                 `).join('');
-
+                const iconsHtml = iconArray.map(i => `<div class="w-12 h-12 rounded-full bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center text-sky-600 dark:text-sky-400 text-xl shrink-0"><i class="${i}"></i></div>`).join('');
                 researchFullContainer.innerHTML += `
-                    <div id="research-item-${index}" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <div id="research-item-${index}" class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
                         <div class="flex items-center gap-4 mb-6">
-                            <div class="flex gap-2">
-                                ${iconsHtml}
-                            </div>
-                            <h2 class="text-2xl font-bold text-slate-900">${item.title}</h2>
+                            <div class="flex gap-2">${iconsHtml}</div>
+                            <h2 class="text-2xl font-bold text-slate-900 dark:text-white">${item.title}</h2>
                         </div>
-                        <div class="prose-text text-slate-600">${item.content}</div>
+                        <div class="prose-text text-slate-600 dark:text-slate-300">${item.content}</div>
                     </div>
                 `;
             });
         }
 
-        // 3c. Render Publications
         if (typeof publications !== 'undefined') {
             const selectedContainer = document.getElementById('selected-publications-list');
             const allPubsContainer = document.getElementById('all-publications-container');
 
-            // Selected
             publications.filter(p => p.selected).forEach(pub => {
-                const pdfBtn = pub.pdf ? `<a href="${pub.pdf}" target="_blank" class="inline-block mt-1 text-xs font-bold text-red-600 border border-red-200 bg-red-50 px-2 py-0.5 rounded hover:bg-red-100 transition"><i class="far fa-file-pdf mr-1"></i> PDF</a>` : '';
-                const details = [pub.journal ? `<span class="italic font-serif">${pub.journal}</span>` : '', pub.volume ? `<span class="font-bold text-slate-700">${pub.volume}</span>` : '', pub.pages ? `<span class="text-slate-500">${pub.pages}</span>` : ''].filter(Boolean).join(', ');
-
+                const pdfBtn = pub.pdf ? `<a href="${pub.pdf}" target="_blank" class="inline-block mt-1 text-xs font-bold text-red-600 border border-red-200 bg-red-50 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400 px-2 py-0.5 rounded hover:bg-red-100 dark:hover:bg-red-900/40 transition"><i class="far fa-file-pdf mr-1"></i> PDF</a>` : '';
+                const details = [pub.journal ? `<span class="italic font-serif dark:text-slate-400">${pub.journal}</span>` : '', pub.volume ? `<span class="font-bold text-slate-700 dark:text-slate-300">${pub.volume}</span>` : '', pub.pages ? `<span class="text-slate-500 dark:text-slate-500">${pub.pages}</span>` : ''].filter(Boolean).join(', ');
                 selectedContainer.innerHTML += `
                     <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 group">
                         <div class="font-mono text-sm text-slate-400 shrink-0 w-12 pt-1">${pub.year}</div>
                         <div>
-                            <h4 class="font-bold text-slate-800 group-hover:text-sky-700 transition"><a href="${pub.link}" target="_blank">${pub.title}</a></h4>
-                            <div class="text-sm text-slate-600 mt-1">${pub.authors}</div>
+                            <h4 class="font-bold text-slate-800 dark:text-slate-200 group-hover:text-sky-700 dark:group-hover:text-sky-400 transition"><a href="${pub.link}" target="_blank">${pub.title}</a></h4>
+                            <div class="text-sm text-slate-600 dark:text-slate-400 mt-1">${pub.authors}</div>
                             <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-sm">
-                                <span>${details}</span>
-                                ${pub.doi ? `<span class="text-slate-300">|</span> <a href="https://doi.org/${pub.doi}" target="_blank" class="text-slate-400 hover:text-slate-600 hover:underline text-xs">DOI: ${pub.doi}</a>` : ''}
+                                <span class="dark:text-slate-400">${details}</span>
+                                ${pub.doi ? `<span class="text-slate-300">|</span> <a href="https://doi.org/${pub.doi}" target="_blank" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:underline text-xs">DOI: ${pub.doi}</a>` : ''}
                                 ${pdfBtn}
                             </div>
                         </div>
@@ -541,71 +520,64 @@
                 `;
             });
 
-            // All (Grouped by Year)
             const uniqueYears = [...new Set(publications.map(p => p.year))].sort().reverse();
             uniqueYears.forEach(year => {
                 const yearPapers = publications.filter(p => p.year === year);
                 const papersHtml = yearPapers.map(pub => {
-                    const pdfBtn = pub.pdf ? `<a href="${pub.pdf}" target="_blank" class="ml-2 inline-block text-xs font-bold text-red-600 border border-red-200 bg-red-50 px-2 py-0.5 rounded hover:bg-red-100 transition"><i class="far fa-file-pdf mr-1"></i> PDF</a>` : '';
-                    const details = [pub.journal ? `<span class="italic font-serif text-slate-600">${pub.journal}</span>` : '', pub.volume ? `<span class="font-bold text-slate-700">${pub.volume}</span>` : '', pub.pages ? `<span class="text-slate-500">${pub.pages}</span>` : ''].filter(Boolean).join(', ');
-
+                    const pdfBtn = pub.pdf ? `<a href="${pub.pdf}" target="_blank" class="ml-2 inline-block text-xs font-bold text-red-600 border border-red-200 bg-red-50 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400 px-2 py-0.5 rounded hover:bg-red-100 dark:hover:bg-red-900/40 transition"><i class="far fa-file-pdf mr-1"></i> PDF</a>` : '';
+                    const details = [pub.journal ? `<span class="italic font-serif text-slate-600 dark:text-slate-400">${pub.journal}</span>` : '', pub.volume ? `<span class="font-bold text-slate-700 dark:text-slate-300">${pub.volume}</span>` : '', pub.pages ? `<span class="text-slate-500 dark:text-slate-500">${pub.pages}</span>` : ''].filter(Boolean).join(', ');
                     return `
                     <div class="mb-4 group">
-                        <h4 class="font-semibold text-slate-900 group-hover:text-sky-700 transition leading-snug"><a href="${pub.link}" target="_blank">${pub.title}</a></h4>
-                        <div class="text-sm text-slate-600 mt-1">${pub.authors}</div>
+                        <h4 class="font-semibold text-slate-900 dark:text-slate-200 group-hover:text-sky-700 dark:group-hover:text-sky-400 transition leading-snug"><a href="${pub.link}" target="_blank">${pub.title}</a></h4>
+                        <div class="text-sm text-slate-600 dark:text-slate-400 mt-1">${pub.authors}</div>
                         <div class="text-sm mt-1 flex flex-wrap gap-x-2 items-center">
-                            <span>${details}</span>
-                            ${pub.doi ? `<span class="text-slate-300">•</span> <a href="https://doi.org/${pub.doi}" target="_blank" class="text-slate-400 hover:text-slate-600 hover:underline text-xs">DOI: ${pub.doi}</a>` : ''}
+                            <span class="dark:text-slate-400">${details}</span>
+                            ${pub.doi ? `<span class="text-slate-300">•</span> <a href="https://doi.org/${pub.doi}" target="_blank" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:underline text-xs">DOI: ${pub.doi}</a>` : ''}
                             ${pdfBtn}
                         </div>
                     </div>
                 `}).join('');
-
                 allPubsContainer.innerHTML += `
-                    <div class="flex flex-col md:flex-row gap-6 border-b border-slate-100 pb-6 last:border-0 last:pb-0">
-                        <div class="md:w-24 flex-shrink-0"><span class="text-xl font-bold text-slate-300">${year}</span></div>
+                    <div class="flex flex-col md:flex-row gap-6 border-b border-slate-100 dark:border-slate-800 pb-6 last:border-0 last:pb-0">
+                        <div class="md:w-24 flex-shrink-0"><span class="text-xl font-bold text-slate-300 dark:text-slate-600">${year}</span></div>
                         <div class="flex-grow">${papersHtml}</div>
                     </div>
                 `;
             });
         }
 
-        // 3d. Render Blog (Completed Logic)
         if (typeof blogPosts !== 'undefined' && blogPosts.length > 0) {
             const blogPreviewContainer = document.getElementById('blog-preview-container');
             const blogIndexContainer = document.getElementById('blog-index-container');
-            
             document.getElementById('blog-preview-container').parentElement.parentElement.classList.remove('hidden');
 
-            // Preview (Home)
             blogPosts.slice(0, 3).forEach((post, index) => {
                 blogPreviewContainer.innerHTML += `
-                     <div onclick="readPost(${index})" class="bg-white p-6 rounded-lg shadow-sm border border-slate-100 cursor-pointer hover:shadow-md hover:border-sky-200 transition group flex flex-col h-full">
+                     <div onclick="readPost(${index})" class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700 cursor-pointer hover:shadow-md hover:border-sky-200 dark:hover:border-sky-700 transition group flex flex-col h-full">
                         <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-1 rounded-full">${post.date}</span>
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 dark:bg-sky-900/30 dark:text-sky-300 px-2 py-1 rounded-full">${post.date}</span>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-sky-700 transition">${post.title}</h3>
-                        <p class="text-slate-600 text-sm line-clamp-3 mb-4 flex-grow">${post.summary}</p>
-                        <div class="text-sky-600 text-sm font-bold mt-auto flex items-center">
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2 group-hover:text-sky-700 dark:group-hover:text-sky-400 transition">${post.title}</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-4 flex-grow">${post.summary}</p>
+                        <div class="text-sky-600 dark:text-sky-400 text-sm font-bold mt-auto flex items-center">
                             Read Article <i class="fas fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
                         </div>
                     </div>
                 `;
             });
 
-            // Index (Blog Page)
             blogPosts.forEach((post, index) => {
                 blogIndexContainer.innerHTML += `
-                    <div onclick="readPost(${index})" class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 cursor-pointer hover:shadow-md hover:border-sky-200 transition group">
+                    <div onclick="readPost(${index})" class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 cursor-pointer hover:shadow-md hover:border-sky-200 dark:hover:border-sky-700 transition group">
                         <div class="flex flex-col md:flex-row md:items-center gap-4 mb-4">
-                            <span class="text-sm font-bold text-sky-600 bg-sky-50 px-3 py-1 rounded-full w-fit">${post.date}</span>
+                            <span class="text-sm font-bold text-sky-600 bg-sky-50 dark:bg-sky-900/30 dark:text-sky-300 px-3 py-1 rounded-full w-fit">${post.date}</span>
                             <div class="flex gap-2">
                                 ${post.tags.map(tag => `<span class="text-xs font-semibold text-slate-400">#${tag}</span>`).join('')}
                             </div>
                         </div>
-                        <h2 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-sky-700 transition">${post.title}</h2>
-                        <p class="text-slate-600 text-lg leading-relaxed mb-4">${post.summary}</p>
-                        <div class="text-sky-600 font-bold flex items-center">
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-sky-700 dark:group-hover:text-sky-400 transition">${post.title}</h2>
+                        <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-4">${post.summary}</p>
+                        <div class="text-sky-600 dark:text-sky-400 font-bold flex items-center">
                             Read Full Post <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
                         </div>
                     </div>

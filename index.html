@@ -90,58 +90,44 @@
                     <!-- Profile Column (Sticky) -->
                     <div class="w-full md:w-1/3 flex-shrink-0 md:sticky md:top-24">
                         <div class="aspect-square bg-slate-200 rounded-lg overflow-hidden shadow-lg relative group">
-                            <!-- User specified image path -->
+                            <!-- Ensure you have your image at images/headshot_kaushal.jpg -->
                             <img src="images/headshot_kaushal.jpg" 
                                  alt="Kaushal Gianchandani" 
-                                 class="w-full h-full object-cover">
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://ui-avatars.com/api/?name=Kaushal+G&background=0284c7&color=fff&size=512'">
                         </div>
                         
-                        <!-- Social Icons -->
-                        <div class="mt-6 flex flex-wrap justify-center gap-4">
-                            <a href="https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en" target="_blank" class="text-slate-400 hover:text-[#4285F4] transition text-2xl" title="Google Scholar">
-                                <i class="fas fa-graduation-cap fa-fw"></i>
-                            </a>
-                            <a href="https://github.com/kaushalgianchandani" target="_blank" class="text-slate-400 hover:text-black transition text-2xl" title="GitHub">
-                                <i class="fab fa-github fa-fw"></i>
-                            </a>
-                             <a href="https://www.researchgate.net/profile/Kaushal-Gianchandani" target="_blank" class="text-slate-400 hover:text-[#00CCBB] transition text-2xl" title="ResearchGate">
-                                <i class="fab fa-researchgate fa-fw"></i>
-                            </a>
-                            <a href="https://orcid.org/0000-0002-8377-759X" target="_blank" class="text-slate-400 hover:text-[#A6CE39] transition text-2xl" title="ORCID">
-                                <i class="fab fa-orcid fa-fw"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/kaushalgianchandani/" target="_blank" class="text-slate-400 hover:text-[#0077B5] transition text-2xl" title="LinkedIn">
-                                <i class="fab fa-linkedin fa-fw"></i>
-                            </a>
+                        <!-- Social Icons (Generated via JS) -->
+                        <div id="social-icons-container" class="mt-6 flex flex-wrap justify-center gap-4">
+                            <!-- Icons will be injected here by renderSocialIcons() -->
                         </div>
                     </div>
 
                     <!-- Bio Text -->
                     <div class="w-full md:w-2/3">
-                        <h1 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-2">Kaushal Gianchandani</h1>
+                        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl mb-2">Kaushal Gianchandani</h1>
                         <p class="text-xl text-sky-700 font-medium mb-6">NASA Postdoctoral Fellow at GISS</p>
                         
                         <div class="prose-text text-slate-600 max-w-3xl">
-                        <p class="mb-4">
-                            I am an oceanographer by training who is currently employed as a NASA Postdoctoral Program (NPP) Fellow at 
-                            the <a href="https://www.giss.nasa.gov/" target="_blank" class="academic-link">Goddard Institute of Space Studies (GISS)</a>.
-                        </p>
+                            <p class="mb-4">
+                                I am an oceanographer by training who is currently employed as a NASA Postdoctoral Program (NPP) Fellow at 
+                                the <a href="https://www.giss.nasa.gov/" target="_blank" class="academic-link">Goddard Institute of Space Studies (GISS)</a>.
+                            </p>
 
-                        <p class="mb-4">
-                            My research focuses on better understanding the ocean's role on Earth and applying this knowledge to celestial bodies 
-                            that may potentially have oceans. Currently, I am investigating the ocean circulation under ice-covered moons in our 
-                            solar system, e.g., Europa and Enceladus. Specifically, I use state-of-the-art numerical models, to study how material 
-                            from the seafloor, including potential biosignatures from hydrothermal activity, is transported through subsurface 
-                            oceans to the moon's surface, where it may be accessible to spacecraft observations.
-                        </p>
+                            <p class="mb-4">
+                                My research focuses on better understanding the ocean's role on Earth and applying this knowledge to celestial bodies 
+                                that may potentially have oceans. Currently, I am investigating the ocean circulation under ice-covered moons in our 
+                                solar system, e.g., Europa and Enceladus. Specifically, I use state-of-the-art numerical models, to study how material 
+                                from the seafloor, including potential biosignatures from hydrothermal activity, is transported through subsurface 
+                                oceans to the moon's surface, where it may be accessible to spacecraft observations.
+                            </p>
 
-                        <p>
-                            I received my PhD from the <a href="https://en.huji.ac.il/" target="_blank" class="academic-link">Hebrew University of Jerusalem</a>,
-                            where my research focused on the ocean circulation during the Neoproterozoic `snowball' Earth events and the Cretaceous 
-                            greenhouse climate.
-                        </p>
+                            <p>
+                                I received my PhD from the <a href="https://en.huji.ac.il/" target="_blank" class="academic-link">Hebrew University of Jerusalem</a>,
+                                where my research focused on the ocean circulation during the Neoproterozoic `snowball' Earth events and the Cretaceous 
+                                greenhouse climate.
+                            </p>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -202,13 +188,13 @@
                 <i class="fas fa-arrow-left mr-2"></i> Back to Home
             </button>
 
-            <h1 class="text-4xl font-bold text-slate-900 mb-6">Research Interests</h1>
-            <p class="text-slate-600 mb-12 text-lg">
-                <!-- My work combines theoretical fluid dynamics with complex general circulation models to understand how the ocean shapes climate, both on Earth and on other icy worlds. -->
+            <h1 class="text-4xl font-bold text-slate-900 mb-2">Research Interests</h1>
+            <p class="text-slate-600 mb-6">
+                A brief overview of my research interests.
             </p>
 
             <!-- Full List of Interests -->
-            <div id="research-full-container" class="space-y-12">
+            <div id="research-full-container" class="space-y-6">
                 <!-- JS injects detailed interests here -->
             </div>
         </div>
@@ -251,7 +237,7 @@
         </div>
     </main>
 
-    <!-- 5. FULL PUBLICATIONS VIEW (Archive) -->
+    <!-- 5. FULL PUBLICATIONS VIEW -->
     <main id="all-publications-view" class="flex-grow hidden fade-in bg-white min-h-screen">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <button onclick="showHome()" class="mb-8 text-sky-600 hover:text-sky-800 font-medium flex items-center">
@@ -278,7 +264,6 @@
             <div class="flex justify-center mb-8">
                 <a href="mailto:kaushalg@mit.edu" class="group flex flex-col items-center hover:text-white transition bg-slate-800 rounded-xl px-10 py-6 hover:bg-slate-700 border border-slate-700">
                     <i class="fas fa-envelope text-3xl mb-3 text-sky-400 group-hover:text-white transition"></i>
-                    <!-- <span class="text-lg font-medium text-white">email</span> -->
                     <span class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Email Me</span>
                 </a>
             </div>
@@ -289,14 +274,61 @@
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
+    
+    <!-- 0. EXTERNAL DATA LOADING -->
+    <!-- These files should define global variables: publications, researchInterests, blogPosts -->
+    <script src="data/publications.js"></script>
+    <script src="data/research_interests.js"></script>
+    <script src="data/blog_posts.js"></script>
+
     <script>
+        // 0a. SOCIAL ICONS DATA (Configurable List)
+        // Kept inline per request to support rendering icons from a list easily
+        const socialLinks = [
+            { 
+                title: "Google Scholar", 
+                url: "https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en", 
+                icon: "fas fa-graduation-cap", 
+                hoverClass: "hover:text-[#4285F4]" 
+            },
+            { 
+                title: "GitHub", 
+                url: "https://github.com/kaushalgianchandani", 
+                icon: "fab fa-github", 
+                hoverClass: "hover:text-black" 
+            },
+            { 
+                title: "ResearchGate", 
+                url: "https://www.researchgate.net/profile/Kaushal-Gianchandani", 
+                icon: "fab fa-researchgate", 
+                hoverClass: "hover:text-[#00CCBB]" 
+            },
+            { 
+                title: "ORCID", 
+                url: "https://orcid.org/0000-0002-8377-759X", 
+                icon: "fab fa-orcid", 
+                hoverClass: "hover:text-[#A6CE39]" 
+            },
+            { 
+                title: "LinkedIn", 
+                url: "https://www.linkedin.com/in/kaushalgianchandani/", 
+                icon: "fab fa-linkedin", 
+                hoverClass: "hover:text-[#0077B5]" 
+            }
+        ];
+
+
+        // ==========================================
         // 1. MOBILE MENU
+        // ==========================================
         function toggleMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
         document.getElementById('year').textContent = new Date().getFullYear();
 
+        // ==========================================
         // 2. VIEW CONTROLLER (The Brains)
+        // ==========================================
         const mainView = document.getElementById('main-view');
         const blogListView = document.getElementById('blog-list-view');
         const singlePostView = document.getElementById('single-post-view');
@@ -312,16 +344,12 @@
             researchView.classList.add('hidden');
         }
 
-        // View Functions - Now they handle logic AND History
         function showHome(updateHistory = true) {
             hideAllViews();
             mainView.classList.remove('hidden');
             contactSection.classList.remove('hidden');
             window.scrollTo(0,0);
-            if (updateHistory) {
-                // Clear hash without reload
-                history.pushState(null, null, ' '); 
-            }
+            if (updateHistory) history.pushState(null, null, ' '); 
         }
 
         function showBlogList(updateHistory = true) {
@@ -341,24 +369,18 @@
         }
 
         function showContact(updateHistory = true) {
-            // Ensure we are on the main view structure so the footer makes sense in context
             hideAllViews();
             mainView.classList.remove('hidden');
             contactSection.classList.remove('hidden');
-            
-            // Scroll specifically to the footer
             contactSection.scrollIntoView({ behavior: 'smooth' });
-            
             if (updateHistory) window.location.hash = 'contact';
         }
 
-        // Deep linking function for research items
         function showResearch(index, updateHistory = true) {
             hideAllViews();
             researchView.classList.remove('hidden');
             contactSection.classList.remove('hidden');
             
-            // Set URL
             if (updateHistory) {
                 if (typeof index !== 'undefined' && index !== null) {
                     window.location.hash = 'research-' + index;
@@ -367,32 +389,31 @@
                 }
             }
 
-            // Scroll Logic
             if (typeof index !== 'undefined' && index !== null) {
                 setTimeout(() => {
                     const element = document.getElementById(`research-item-${index}`);
                     if (element) {
-                        const headerOffset = 80; // Height of sticky nav + padding
+                        const headerOffset = 80;
                         const elementPosition = element.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
+                        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                     }
                 }, 50);
             } else {
-                // Default: Scroll to top
                 window.scrollTo(0,0);
             }
         }
 
         function readPost(index, updateHistory = true) {
             hideAllViews();
-            const post = blogPosts[index];
-            if (!post) { showBlogList(); return; } // Safety check
+            
+            if (typeof blogPosts === 'undefined' || !blogPosts[index]) {
+                console.warn('Blog post not found or data file not loaded.');
+                showBlogList(); 
+                return; 
+            }
 
+            const post = blogPosts[index];
             document.getElementById('post-title').textContent = post.title;
             document.getElementById('post-date').textContent = post.date;
             document.getElementById('post-content').innerHTML = post.content;
@@ -405,10 +426,9 @@
             if (updateHistory) window.location.hash = 'post-' + index;
         }
 
-        // ROUTER: Handle Refresh & Back Button
+        // ROUTER
         function handleHashChange() {
             const hash = window.location.hash;
-            
             if (hash === '#blog') {
                 showBlogList(false);
             } else if (hash === '#publications') {
@@ -423,341 +443,175 @@
             } else if (hash === '#contact') {
                 showContact(false);
             } else {
-                // Default to home if hash is empty or unknown
                 showHome(false);
             }
         }
 
-        // Listen for browser navigation (Back/Forward)
         window.addEventListener('hashchange', handleHashChange);
-        
-        // Listen for initial load (Refresh)
         window.addEventListener('DOMContentLoaded', handleHashChange);
 
 
         // ==========================================
-        // 3. RESEARCH INTERESTS DATA (Updated for Icy Moons Focus)
+        // 3. RENDER LOGIC
         // ==========================================
-        const researchInterests = [
-            // {
-            //     icon: "fas fa-moon",
-            //     title: "Oceans on icy moons",
-            //     summary: "Investigating promising candidates for extraterrestrial life within our solar system.",    
-                // content: `
-                //     <p>My current research focuses on the fascinating oceanography of icy moons in our solar system, particularly Europa and Enceladus. Understanding the dynamics of these subsurface oceans is critical for assessing their habitability.</p>
-                    
-                //     <h3>Ocean-Ice Interaction</h3>
-                //     <p>I study the interactions between the liquid ocean and the overlying ice shell. Key questions include:</p>
-                //     <ul>
-                //         <li>How does tidal dissipation drive ocean circulation?</li>
-                //         <li>What are the mechanisms of heat transport from the rocky core to the ice shell?</li>
-                //         <li>Can we detect signatures of ocean circulation in the surface geology of the ice shell?</li>
-                //     </ul>
-                    
-                //     <!-- Example Image -->
-                //     <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/PIA11688_Enceladus_Plumes.jpg" alt="Enceladus Plumes">
-                //     <p class="text-sm text-slate-500 italic text-center">Plumes of Enceladus suggesting subsurface ocean activity.</p>
-                // `
-            // },
-            // {
-                // icon: "fas fa-globe-americas",
-                // title: "Paleoclimate modeling",
-                // summary: "Exploring the Neoproterozoic `snowball' Earth events.",
-                // content: `
-                //     <p>I use General Circulation Models (GCMs) to simulate Earth's climate during deep time. My focus is on two extreme periods: the hot greenhouse of the Cretaceous and the frozen "Snowball Earth" of the Neoproterozoic.</p>
-                //     <p>By reconstructing these past climates, we can test the limits of our climate models and gain insights into the feedback loops that regulate Earth's temperature over millions of years.</p>
-                // `
-            // },
-            // {
-                // icon: "fas fa-water",
-                // title: "Wind-driven ocean",
-                // summary: "Investigating westward intensification and wind-driven surface circulation.",
-                // content: `
-                //     <p>My research interest lies in understanding the fundamental drivers of large-scale ocean circulation. Specifically, I investigate the mechanisms behind westward intensification and how basin geometry influences boundary currents.</p>
-                    
-                //     <h3>Key Questions</h3>
-                //     <ul>
-                //         <li>How does the aspect ratio of an ocean basin affect the strength of western boundary currents?</li>
-                //         <li>What role does bottom topography play in steering these currents?</li>
-                //     </ul>
-
-                //     <h3>Why it matters</h3>
-                //     <p>Western boundary currents like the Gulf Stream are crucial for transporting heat from the equator to the poles. Understanding their sensitivity to geometric and wind forcing helps us predict how they might shift in a changing climate.</p>
-                // `
-            // },
-        ];
-
-        // RENDER: Research Previews (Home)
-        const researchPreviewContainer = document.getElementById('research-preview-container');
-        // slice(0, 3) ensures only the top 3 items appear for symmetry. 
-        researchInterests.slice(0, 3).forEach((item, index) => {
-            researchPreviewContainer.innerHTML += `
-                <div onclick="showResearch(${index})" class="bg-white p-6 rounded-lg shadow-sm border border-slate-100 cursor-pointer hover:shadow-md hover:border-sky-200 transition group">
-                    <div class="text-sky-600 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300"><i class="${item.icon}"></i></div>
-                    <h3 class="text-xl font-bold mb-2 text-slate-800 group-hover:text-sky-700 transition">${item.title}</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        ${item.summary}
-                    </p>
-                </div>
-            `;
-        });
-
-        // RENDER: Full Research View
-        const researchFullContainer = document.getElementById('research-full-container');
-        researchInterests.forEach((item, index) => {
-            researchFullContainer.innerHTML += `
-                <div id="research-item-${index}" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center text-sky-600 text-xl">
-                            <i class="${item.icon}"></i>
-                        </div>
-                        <h2 class="text-2xl font-bold text-slate-900">${item.title}</h2>
-                    </div>
-                    <div class="prose-text text-slate-600">
-                        ${item.content}
-                    </div>
-                </div>
-            `;
-        });
-
-
-        // ==========================================
-        // 4. PUBLICATIONS DATA
-        // ==========================================
-        const publications = [
-            {
-                year: "2024",
-                selected: false,
-                title: "Recirculation through western boundary currents varies nonlinearly with the ocean basin’s aspect ratio",
-                authors: "<b>Kaushal Gianchandani</b>",
-                journal: "Physics of Fluids",
-                volume: "36",
-                pages: "096608",
-                doi: "10.1063/5.0226883",
-                link: "https://pubs.aip.org/aip/pof/article/36/9/096608/3313034/Recirculation-through-western-boundary-currents", 
-                pdf: "https://pubs.aip.org/aip/pof/article-pdf/doi/10.1063/5.0226883/20161771/096608_1_5.0226883.pdf" 
-            },
-            {
-                year: "2024",
-                selected: true,
-                title: "Production of Neoproterozoic banded iron formations in a partially ice-covered ocean",
-                authors: "<b>Kaushal Gianchandani</b>, Itay Halevy, Hezi Gildor, Yosef Ashkenazy and Eli Tziperman",
-                journal: "Nature Geoscience",
-                volume: "17",
-                pages: "298-301",
-                doi: "10.1038/s41561-024-01406-4",
-                link: "https://www.nature.com/articles/s41561-024-01406-4",
-                pdf: "https://www.nature.com/articles/s41561-024-01406-4.pdf" 
-            },
-            {
-                year: "2024",
-                selected: false,
-                title: "Ekman pumping on the &beta;-plane",
-                authors: "<b>Kaushal Gianchandani</b> and Nathan Paldor",
-                journal: "Physics of Fluids",
-                volume: "36",
-                pages: "096608",
-                doi: "10.1063/5.0226883",
-                link: "https://pubs.aip.org/aip/pof/article/36/2/026617/3267727/Ekman-pumping-on-the-plane", 
-                pdf: "https://pubs.aip.org/aip/pof/article-pdf/doi/10.1063/5.0194042/19699352/026617_1_5.0194042.pdf" 
-            },
-            {
-                year: "2023",
-                selected: true,
-                title: "Effects of paleogeographic changes and CO<sub>2</sub> variability on northern mid-latitudinal temperature gradients in the Cretaceous",
-                authors: "<b>Kaushal Gianchandani</b>, Sagi Maor, Ori Adam, Alexander Farnsworth, Hezi Gildor, Daniel J. Lunt and Nathan Paldor",
-                journal: "Nature Communications",
-                volume: "14",
-                pages: "5265",
-                doi: "10.1038/s41467-023-40905-7",
-                link: "https://www.nature.com/articles/s41467-023-40905-7",
-                pdf: "pdfs/s41467-023-40905-7.pdf" 
-            },
-            {
-                year: "2021",
-                selected: false,
-                title: "On the role of domain aspect ratio in the westward intensification of wind-driven surface ocean circulation",
-                authors: "<b>Kaushal Gianchandani</b>, Hezi Gildor and Nathan Paldor",
-                journal: "Ocean Science",
-                volume: "17",
-                pages: "351–368",
-                doi: "10.5194/os-17-351-2021",
-                link: "https://os.copernicus.org/articles/17/351/2021/",
-                pdf: "https://os.copernicus.org/articles/17/351/2021/os-17-351-2021.pdf" 
-            },
-             {
-                year: "2020",
-                selected: false,
-                title: "Statistical tests for the distribution of surface wind and current speeds across the globe",
-                authors: "Salvatore Campisi-Pinto, <b>Kaushal Gianchandani</b> and Yosef Ashkenazy",
-                journal: "Renewable Energy",
-                volume: "162",
-                pages: "2217-2226",
-                doi: "10.1016/j.renene.2020.10.025",
-                link: "https://www.sciencedirect.com/science/article/abs/pii/S0960148119319135",
-                pdf: "pdfs/renewable_energy_2019.pdf" 
-            }
-        ];
-
-        // RENDER: Selected (Home)
-        const selectedContainer = document.getElementById('selected-publications-list');
-        publications.filter(p => p.selected).forEach(pub => {
-            const pdfBtn = pub.pdf ? `
-                <a href="${pub.pdf}" target="_blank" class="inline-block mt-1 text-xs font-bold text-red-600 border border-red-200 bg-red-50 px-2 py-0.5 rounded hover:bg-red-100 transition">
-                    <i class="far fa-file-pdf mr-1"></i> PDF
+        
+        // 3a. RENDER SOCIAL ICONS (New Feature)
+        const socialContainer = document.getElementById('social-icons-container');
+        if (socialContainer && typeof socialLinks !== 'undefined') {
+            socialContainer.innerHTML = socialLinks.map(link => `
+                <a href="${link.url}" target="_blank" class="text-slate-400 ${link.hoverClass} transition text-2xl" title="${link.title}">
+                    <i class="${link.icon} fa-fw"></i>
                 </a>
-            ` : '';
-            
-            // Build citation details string
-            const details = [
-                pub.journal ? `<span class="italic font-serif">${pub.journal}</span>` : '',
-                pub.volume ? `<span class="font-bold text-slate-700">${pub.volume}</span>` : '',
-                pub.pages ? `<span class="text-slate-500">${pub.pages}</span>` : '',
-            ].filter(Boolean).join(', ');
+            `).join('');
+        }
 
-            selectedContainer.innerHTML += `
-                <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 group">
-                    <div class="font-mono text-sm text-slate-400 shrink-0 w-12 pt-1">${pub.year}</div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 group-hover:text-sky-700 transition">
-                            <a href="${pub.link}" target="_blank">${pub.title}</a>
-                        </h4>
-                        <div class="text-sm text-slate-600 mt-1">
-                            ${pub.authors}
+        // 3b. Render Research Interests
+        if (typeof researchInterests !== 'undefined') {
+            const researchPreviewContainer = document.getElementById('research-preview-container');
+            const researchFullContainer = document.getElementById('research-full-container');
+            
+            if (researchInterests.length > 0) {
+                document.getElementById('research-preview').classList.remove('hidden');
+            }
+
+            // Preview
+            researchInterests.slice(0, 3).forEach((item, index) => {
+                // Modified: Handle both string and array for icons
+                const iconArray = Array.isArray(item.icon) ? item.icon : [item.icon];
+                const iconsHtml = iconArray.map(i => `<i class="${i}"></i>`).join('');
+
+                researchPreviewContainer.innerHTML += `
+                    <div onclick="showResearch(${index})" class="bg-white p-6 rounded-lg shadow-sm border border-slate-100 cursor-pointer hover:shadow-md hover:border-sky-200 transition group">
+                        <div class="text-sky-600 text-3xl mb-4 group-hover:scale-110 transition-transform duration-300 flex gap-3">
+                             ${iconsHtml}
                         </div>
-                        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-sm">
+                        <h3 class="text-xl font-bold mb-2 text-slate-800 group-hover:text-sky-700 transition">${item.title}</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">${item.summary}</p>
+                    </div>
+                `;
+            });
+
+            // Full View
+            researchInterests.forEach((item, index) => {
+                // Modified: Handle both string and array for icons
+                const iconArray = Array.isArray(item.icon) ? item.icon : [item.icon];
+                const iconsHtml = iconArray.map(i => `
+                    <div class="w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center text-sky-600 text-xl shrink-0">
+                        <i class="${i}"></i>
+                    </div>
+                 `).join('');
+
+                researchFullContainer.innerHTML += `
+                    <div id="research-item-${index}" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex gap-2">
+                                ${iconsHtml}
+                            </div>
+                            <h2 class="text-2xl font-bold text-slate-900">${item.title}</h2>
+                        </div>
+                        <div class="prose-text text-slate-600">${item.content}</div>
+                    </div>
+                `;
+            });
+        }
+
+        // 3c. Render Publications
+        if (typeof publications !== 'undefined') {
+            const selectedContainer = document.getElementById('selected-publications-list');
+            const allPubsContainer = document.getElementById('all-publications-container');
+
+            // Selected
+            publications.filter(p => p.selected).forEach(pub => {
+                const pdfBtn = pub.pdf ? `<a href="${pub.pdf}" target="_blank" class="inline-block mt-1 text-xs font-bold text-red-600 border border-red-200 bg-red-50 px-2 py-0.5 rounded hover:bg-red-100 transition"><i class="far fa-file-pdf mr-1"></i> PDF</a>` : '';
+                const details = [pub.journal ? `<span class="italic font-serif">${pub.journal}</span>` : '', pub.volume ? `<span class="font-bold text-slate-700">${pub.volume}</span>` : '', pub.pages ? `<span class="text-slate-500">${pub.pages}</span>` : ''].filter(Boolean).join(', ');
+
+                selectedContainer.innerHTML += `
+                    <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 group">
+                        <div class="font-mono text-sm text-slate-400 shrink-0 w-12 pt-1">${pub.year}</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 group-hover:text-sky-700 transition"><a href="${pub.link}" target="_blank">${pub.title}</a></h4>
+                            <div class="text-sm text-slate-600 mt-1">${pub.authors}</div>
+                            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-sm">
+                                <span>${details}</span>
+                                ${pub.doi ? `<span class="text-slate-300">|</span> <a href="https://doi.org/${pub.doi}" target="_blank" class="text-slate-400 hover:text-slate-600 hover:underline text-xs">DOI: ${pub.doi}</a>` : ''}
+                                ${pdfBtn}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // All (Grouped by Year)
+            const uniqueYears = [...new Set(publications.map(p => p.year))].sort().reverse();
+            uniqueYears.forEach(year => {
+                const yearPapers = publications.filter(p => p.year === year);
+                const papersHtml = yearPapers.map(pub => {
+                    const pdfBtn = pub.pdf ? `<a href="${pub.pdf}" target="_blank" class="ml-2 inline-block text-xs font-bold text-red-600 border border-red-200 bg-red-50 px-2 py-0.5 rounded hover:bg-red-100 transition"><i class="far fa-file-pdf mr-1"></i> PDF</a>` : '';
+                    const details = [pub.journal ? `<span class="italic font-serif text-slate-600">${pub.journal}</span>` : '', pub.volume ? `<span class="font-bold text-slate-700">${pub.volume}</span>` : '', pub.pages ? `<span class="text-slate-500">${pub.pages}</span>` : ''].filter(Boolean).join(', ');
+
+                    return `
+                    <div class="mb-4 group">
+                        <h4 class="font-semibold text-slate-900 group-hover:text-sky-700 transition leading-snug"><a href="${pub.link}" target="_blank">${pub.title}</a></h4>
+                        <div class="text-sm text-slate-600 mt-1">${pub.authors}</div>
+                        <div class="text-sm mt-1 flex flex-wrap gap-x-2 items-center">
                             <span>${details}</span>
-                            ${pub.doi ? `<span class="text-slate-300">|</span> <a href="https://doi.org/${pub.doi}" target="_blank" class="text-slate-400 hover:text-slate-600 hover:underline text-xs">DOI: ${pub.doi}</a>` : ''}
+                            ${pub.doi ? `<span class="text-slate-300">•</span> <a href="https://doi.org/${pub.doi}" target="_blank" class="text-slate-400 hover:text-slate-600 hover:underline text-xs">DOI: ${pub.doi}</a>` : ''}
                             ${pdfBtn}
                         </div>
                     </div>
-                </div>
-            `;
-        });
+                `}).join('');
 
-        // RENDER: All (Grouped by Year) - COMPACT DENSITY
-        const allPubsContainer = document.getElementById('all-publications-container');
-        const uniqueYears = [...new Set(publications.map(p => p.year))].sort().reverse();
-        
-        uniqueYears.forEach(year => {
-            const yearPapers = publications.filter(p => p.year === year);
-            const papersHtml = yearPapers.map(pub => {
-                // Standardized PDF button matching homepage
-                const pdfBtn = pub.pdf ? `
-                    <a href="${pub.pdf}" target="_blank" class="ml-2 inline-block text-xs font-bold text-red-600 border border-red-200 bg-red-50 px-2 py-0.5 rounded hover:bg-red-100 transition">
-                        <i class="far fa-file-pdf mr-1"></i> PDF
-                    </a>
-                ` : '';
-
-                // Build citation details string
-                const details = [
-                    pub.journal ? `<span class="italic font-serif text-slate-600">${pub.journal}</span>` : '',
-                    pub.volume ? `<span class="font-bold text-slate-700">${pub.volume}</span>` : '',
-                    pub.pages ? `<span class="text-slate-500">${pub.pages}</span>` : '',
-                ].filter(Boolean).join(', ');
-
-                return `
-                <div class="mb-4 group">
-                    <h4 class="font-semibold text-slate-900 group-hover:text-sky-700 transition leading-snug">
-                        <a href="${pub.link}" target="_blank">${pub.title}</a>
-                    </h4>
-                    <div class="text-sm text-slate-600 mt-1">
-                        ${pub.authors} 
+                allPubsContainer.innerHTML += `
+                    <div class="flex flex-col md:flex-row gap-6 border-b border-slate-100 pb-6 last:border-0 last:pb-0">
+                        <div class="md:w-24 flex-shrink-0"><span class="text-xl font-bold text-slate-300">${year}</span></div>
+                        <div class="flex-grow">${papersHtml}</div>
                     </div>
-                    <div class="text-sm mt-1 flex flex-wrap gap-x-2 items-center">
-                        <span>${details}</span>
-                        ${pub.doi ? `<span class="text-slate-300">•</span> <a href="https://doi.org/${pub.doi}" target="_blank" class="text-slate-400 hover:text-slate-600 hover:underline text-xs">DOI: ${pub.doi}</a>` : ''}
-                        ${pdfBtn}
-                    </div>
-                </div>
-            `}).join('');
+                `;
+            });
+        }
 
-            allPubsContainer.innerHTML += `
-                <div class="flex flex-col md:flex-row gap-6 border-b border-slate-100 pb-6 last:border-0 last:pb-0">
-                    <div class="md:w-24 flex-shrink-0">
-                        <span class="text-xl font-bold text-slate-300">${year}</span>
-                    </div>
-                    <div class="flex-grow">
-                        ${papersHtml}
-                    </div>
-                </div>
-            `;
-        });
+        // 3d. Render Blog (Completed Logic)
+        if (typeof blogPosts !== 'undefined' && blogPosts.length > 0) {
+            const blogPreviewContainer = document.getElementById('blog-preview-container');
+            const blogIndexContainer = document.getElementById('blog-index-container');
+            
+            document.getElementById('blog-preview-container').parentElement.parentElement.classList.remove('hidden');
 
-        // ==========================================
-        // 5. BLOG DATA (Reconstructed)
-        // ==========================================
-        const blogPosts = [
-            // {
-            //     title: "Modeling Ocean Worlds",
-            //     date: "Oct 15, 2023",
-            //     tags: ["GISS", "Oceanography"],
-            //     summary: "A brief look at how we use GCMs to simulate conditions on Europa.",
-            //     content: `
-            //         <p>When we look at Europa, we see a world covered in ice. But beneath that ice lies a liquid ocean that might harbor life. How do we study an ocean we can't see? We use math.</p>
-            //         <p>Using the ROCKE-3D model developed at NASA GISS, we can simulate the ocean circulation driven by tidal heating. It's like forecasting the weather, but for an alien ocean where the 'sun' is the gravity of Jupiter pulling and squeezing the moon.</p>
-            //         <h3>The Challenge of Data</h3>
-            //         <p>We don't have many direct observations yet. Missions like Europa Clipper are going to change that, but for now, we rely on physics-based modeling to constrain what is possible.</p>
-            //     `
-            // },
-            // {
-            //     title: "From Jerusalem to New York",
-            //     date: "Sep 01, 2023",
-            //     tags: ["Career", "Travel"],
-            //     summary: "Reflections on moving for a postdoc and the change in research focus.",
-            //     content: `
-            //         <p>Moving from the Hebrew University of Jerusalem to NASA GISS in New York was a big shift—not just geographically, but scientifically. I went from studying Earth's past climate to studying future destinations in the solar system.</p>
-            //         <p>The core physics, however, remains the same. Fluid dynamics is universal. Whether it's the Atlantic Ocean in the Cretaceous or the subsurface ocean of Enceladus today, the same equations of motion apply.</p>
-            //     `
-            // },
-            // {
-            //     title: "Why Open Source Matters in Science",
-            //     date: "Jun 20, 2023",
-            //     tags: ["Open Science", "Code"],
-            //     summary: "Why I publish my analysis code and believe in open reproducibility.",
-            //     content: `
-            //         <p>Science should be reproducible. In the modern era, that means code. If I publish a paper about ocean currents, but keep the code that calculated those currents secret, I am only telling half the story.</p>
-            //         <p>Open source tools like Python and libraries like xarray have revolutionized oceanography. By sharing our tools, we move the whole field forward faster.</p>
-            //     `
-            // }
-        ];
-
-        // RENDER: Blog Preview (Home)
-        const blogPreviewContainer = document.getElementById('blog-preview-container');
-        blogPosts.slice(0, 3).forEach((post, index) => {
-            blogPreviewContainer.innerHTML += `
-                 <div onclick="readPost(${index})" class="bg-white p-6 rounded-lg shadow-sm border border-slate-100 cursor-pointer hover:shadow-md hover:border-sky-200 transition group flex flex-col h-full">
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-1 rounded-full">${post.date}</span>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 text-slate-800 group-hover:text-sky-700 transition leading-tight">${post.title}</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
-                        ${post.summary}
-                    </p>
-                    <div class="text-sky-600 text-sm font-bold group-hover:underline">Read Article &rarr;</div>
-                </div>
-            `;
-        });
-
-        // RENDER: Blog Index (List View)
-        const blogIndexContainer = document.getElementById('blog-index-container');
-        blogPosts.forEach((post, index) => {
-            blogIndexContainer.innerHTML += `
-                <div onclick="readPost(${index})" class="flex flex-col md:flex-row gap-6 items-start bg-white p-6 rounded-xl border border-slate-100 hover:shadow-md hover:border-sky-200 transition cursor-pointer group">
-                    <div class="md:w-1/4 flex-shrink-0">
-                        <span class="text-sm font-bold text-slate-400 block mb-1">${post.date}</span>
-                        <div class="flex flex-wrap gap-2">
-                             ${post.tags.map(tag => `<span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded">#${tag}</span>`).join('')}
+            // Preview (Home)
+            blogPosts.slice(0, 3).forEach((post, index) => {
+                blogPreviewContainer.innerHTML += `
+                     <div onclick="readPost(${index})" class="bg-white p-6 rounded-lg shadow-sm border border-slate-100 cursor-pointer hover:shadow-md hover:border-sky-200 transition group flex flex-col h-full">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-1 rounded-full">${post.date}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-sky-700 transition">${post.title}</h3>
+                        <p class="text-slate-600 text-sm line-clamp-3 mb-4 flex-grow">${post.summary}</p>
+                        <div class="text-sky-600 text-sm font-bold mt-auto flex items-center">
+                            Read Article <i class="fas fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
                         </div>
                     </div>
-                    <div class="md:w-3/4">
-                         <h3 class="text-2xl font-bold mb-2 text-slate-800 group-hover:text-sky-700 transition">${post.title}</h3>
-                         <p class="text-slate-600">${post.summary}</p>
-                    </div>
-                </div>
-            `;
-        });
+                `;
+            });
 
+            // Index (Blog Page)
+            blogPosts.forEach((post, index) => {
+                blogIndexContainer.innerHTML += `
+                    <div onclick="readPost(${index})" class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 cursor-pointer hover:shadow-md hover:border-sky-200 transition group">
+                        <div class="flex flex-col md:flex-row md:items-center gap-4 mb-4">
+                            <span class="text-sm font-bold text-sky-600 bg-sky-50 px-3 py-1 rounded-full w-fit">${post.date}</span>
+                            <div class="flex gap-2">
+                                ${post.tags.map(tag => `<span class="text-xs font-semibold text-slate-400">#${tag}</span>`).join('')}
+                            </div>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-sky-700 transition">${post.title}</h2>
+                        <p class="text-slate-600 text-lg leading-relaxed mb-4">${post.summary}</p>
+                        <div class="text-sky-600 font-bold flex items-center">
+                            Read Full Post <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </div>
+                    </div>
+                `;
+            });
+        }
     </script>
 </body>
 </html>

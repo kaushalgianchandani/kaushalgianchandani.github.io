@@ -30,8 +30,8 @@ const publications = [
         authors: "<b>Kaushal Gianchandani</b> and Nathan Paldor",
         journal: "Physics of Fluids",
         volume: "36",
-        pages: "096608",
-        doi: "10.1063/5.0226883",
+        pages: "026617",
+        doi: "10.1063/5.0194042",
         link: "https://pubs.aip.org/aip/pof/article/36/2/026617/3267727/Ekman-pumping-on-the-plane", 
         pdf: "https://pubs.aip.org/aip/pof/article-pdf/doi/10.1063/5.0194042/19699352/026617_1_5.0194042.pdf" 
     },

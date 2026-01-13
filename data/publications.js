@@ -8,7 +8,7 @@ const publications = [
         volume: "36",
         pages: "096608",
         doi: "10.1063/5.0226883",
-        link: "https://doi.org/10.1063/5.0226883", 
+        link: "https://pubs.aip.org/aip/pof/article/36/9/096608/3313034/Recirculation-through-western-boundary-currents", 
         pdf: "https://pubs.aip.org/aip/pof/article-pdf/doi/10.1063/5.0226883/20161771/096608_1_5.0226883.pdf" 
     },
     {

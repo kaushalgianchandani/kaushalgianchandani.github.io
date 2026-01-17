@@ -47,10 +47,10 @@
   <style>
     /* Typography for Long Form Content */
     .prose-text { 
-        line-height: 1.75; /* Slightly tightened from 1.8 */
+        line-height: 1.75; 
         font-size: 1.05rem; 
         color: #334155; 
-        text-align: left; /* Changed from justify to left for readability */
+        text-align: left; 
         text-rendering: optimizeLegibility;
     }
     .dark .prose-text { color: #cbd5e1; }
@@ -62,6 +62,22 @@
     .prose-text strong { font-weight: 600; color: #0f172a; }
     .dark .prose-text strong { color: #f8fafc; }
     .prose-text img { max-width: 100%; border-radius: 0.5rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+
+    /* --- Image Row Utility (for teaching/research galleries) --- */
+    .img-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Creates equal columns, stacks on mobile */
+        gap: 1rem; /* Spacing between images */
+        margin: 1.5rem 0;
+    }
+    /* Override standard prose margins when inside a row */
+    .prose-text .img-row img {
+        margin: 0; 
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures images fill the square without stretching */
+        aspect-ratio: 4/3; /* Forces a consistent shape */
+    }
 
     /* Academic Link Styles */
     .academic-link { color: #0284c7; text-decoration: none; transition: color 0.2s; }
@@ -97,7 +113,6 @@
   <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- NAVIGATION -->
-  <!-- FIX: Added 'border-b border-transparent' to reserve the 1px space in light mode, preventing layout shift -->
   <nav class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-transparent dark:bg-slate-900/90 dark:border-slate-800 transition-colors duration-300" aria-label="Primary">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
@@ -114,7 +129,6 @@
           <a href="#blog" class="nav-link text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-400 font-medium text-sm uppercase tracking-wide cursor-pointer transition-colors" onclick="showBlogList(true); return false;">Blog</a>
           <a href="#contact" class="nav-link text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-400 font-medium text-sm uppercase tracking-wide cursor-pointer transition-colors" onclick="showContact(true); return false;">Contact</a>
 
-          <!-- Fixed width/height (w-10 h-10) to prevent layout shift on icon change -->
           <button type="button" onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400/60" aria-label="Toggle theme" title="Toggle theme">
             <i class="fas fa-moon dark:hidden" aria-hidden="true"></i>
             <i class="fas fa-sun hidden dark:inline text-yellow-400" aria-hidden="true"></i>
@@ -123,7 +137,6 @@
 
         <!-- Mobile Menu Button & Toggle -->
         <div class="flex items-center gap-4 sm:hidden">
-          <!-- Fixed width/height here as well -->
           <button type="button" onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center p-2 text-slate-500 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400/60 rounded-full" aria-label="Toggle theme" title="Toggle theme">
             <i class="fas fa-moon dark:hidden" aria-hidden="true"></i>
             <i class="fas fa-sun hidden dark:inline text-yellow-400" aria-hidden="true"></i>
@@ -165,7 +178,6 @@
             </div>
 
             <!-- Header Social Icons Container -->
-            <!-- Added text-3xl for larger icons -->
             <div id="social-icons-header" class="mt-6 flex flex-wrap justify-center gap-4 text-3xl" aria-label="Social links"></div>
           </div>
 

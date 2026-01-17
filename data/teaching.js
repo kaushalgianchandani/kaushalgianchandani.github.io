@@ -1,12 +1,8 @@
 // HTML tags like <p>, <strong>, <em> are supported.
 // Teaching philosophy
 const teachingPhilosophy = `
-    <p>
-    I enjoy teaching science through doing it. Whether in the lab or working with data and models, I focus on helping students connect equations and theory to physical intuition and real systems in Earth and Planetary Sciences (EPS).
-    </p>
-    <p>
-    Students arrive to EPS with different strengths and levels of quantitative preparation, especially in interdisciplinary fields like oceanography and planetary science. I see this heterogeneity as an advantage! My aim is to build shared foundations while supporting students who may be newer to tools like statistics or numerical models, so they can engage confidently with unfamiliar problems.
-    </p>
+    <p> I try to make clear how equations, data, and models are used to describe real physical systems in Earth and Planetary Sciences.</p>
+    <p> Students come into the field with different levels of quantitative preparation, especially in interdisciplinary areas like oceanography and planetary science. I focus on building shared foundations while supporting students who are newer to tools such as statistics or numerical modeling, so they can work more comfortably with unfamiliar problems both in and beyond the classroom.</p>
 `;
 
 const teaching = [
@@ -17,7 +13,7 @@ const teaching = [
         university: "Massachusetts Institute of Technology",
         term: "Spring 2025",
         description: `<p> I supported a hands-on course taught by <a href="https://oceans.mit.edu/JohnMarshall/">John Marshall</a> and <a href="https://taliatamarin.wixsite.com/taliatamarin/">Talia Tamarin-Brodsky</a> that combines theory with rotating tank experiments to study atmospheric and oceanic circulation. Much of my role involved working alongside students during lab sessions, helping with experimental setup, instrumentation, and data analysis, and discussing how the lab results connect to ideas from geophysical fluid dynamics.</p>
-        <p> One of the students in this course, Youran (Yoland) Gao, developed a particle-tracking tool to follow surface tracers in video recordings of the experiments for his final project. We pursued this further after the course ended, working together through regular brainstorming sessions, discussing design choices and analysis approaches. Yoland led the implementation, and I provided input on the overall structure and functionality. A link to the tracker is provided below. </p>
+        <p> One of the students in this course, <a href="https://yolandgao.com/">Youran (Yoland) Gao</a>, developed a particle-tracking tool to follow surface tracers in video recordings of the experiments for his final project. We pursued this further after the course ended, working together through regular brainstorming sessions, discussing design choices and analysis approaches. Yoland led the implementation, and I provided input on the overall structure and functionality. A link to the tracker is provided below. </p>
         <p> Through the Summer-Fall of 2025, I also worked with John on updating the rotating tank setup, helping improve the hardware as well. The updated system will be used in the next iteration of the course.</p>
 
         <!-- Example of 3 images in a row using the new .img-row class 

@@ -287,7 +287,7 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
           <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Publications</h1>
-          <p class="text-slate-600 dark:text-slate-400">A chronological list of my publications.</p>
+          <p class="text-slate-600 dark:text-slate-400">Chronological list of my publications.</p>
         </div>
         <div class="mt-4 md:mt-0">
           <a href="https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-sm bg-sky-50 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300 px-4 py-2 rounded-full font-bold hover:bg-sky-100 dark:hover:bg-sky-900/50 transition">
@@ -308,7 +308,7 @@
 
       <div class="mb-12">
         <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Teaching</h1>
-        <p class="text-slate-600 dark:text-slate-400">Teaching Assistant experience.</p>
+        <p class="text-slate-600 dark:text-slate-400">Collection of my formal and informal teaching efforts.</p>
       </div>
 
       <div id="teaching-container" class="space-y-8">
@@ -762,12 +762,46 @@
       const teachingContainer = document.getElementById("teaching-container");
       if (!teachingContainer) return;
 
-      teachingContainer.innerHTML = teaching.map((course) => `
+      // 1. Render Philosophy (if it exists)
+      let philosophyHtml = '';
+      if (typeof teachingPhilosophy !== "undefined" && teachingPhilosophy) {
+          philosophyHtml = `
+            <div class="mb-12 bg-sky-50 dark:bg-slate-800/50 border-l-4 border-sky-500 p-6 rounded-r-lg">
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Teaching Philosophy</h3>
+                <div class="prose-text text-slate-700 dark:text-slate-300">
+                    ${teachingPhilosophy}
+                </div>
+            </div>
+          `;
+      }
+
+      // 2. Render Courses
+      const coursesHtml = teaching.map((course) => {
+        // Generate Resources HTML
+        const resourcesHtml = (course.resources || []).map(r => `
+            <a href="${r.url}" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-full border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 hover:bg-sky-50 dark:hover:bg-sky-900/30 hover:text-sky-700 dark:hover:text-sky-400 hover:border-sky-200 dark:hover:border-sky-700 transition-colors">
+                <i class="${r.icon || 'fas fa-link'} mr-2"></i> ${r.label}
+            </a>
+        `).join('');
+
+        const resourcesSection = resourcesHtml ? `<div class="mt-4 flex flex-wrap gap-2">${resourcesHtml}</div>` : '';
+
+        return `
         <div class="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
           <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
             <div>
               <h2 class="text-2xl font-bold text-slate-900 dark:text-white">${course.title}</h2>
-              <p class="text-sky-700 dark:text-sky-400 font-medium">${course.code} | ${course.university}</p>
+              
+              <!-- Role Display -->
+              <div class="flex flex-wrap items-center gap-x-3 text-sm mt-1 mb-1">
+                  <span class="font-bold text-sky-700 dark:text-sky-400 uppercase tracking-wide text-xs">${course.role}</span>
+                  <span class="text-slate-300 dark:text-slate-600">|</span>
+                  <span class="font-medium text-slate-700 dark:text-slate-300">${course.code}</span>
+                  <span class="text-slate-300 dark:text-slate-600">|</span>
+                  <span class="text-slate-500 dark:text-slate-400">${course.university}</span>
+              </div>
+
             </div>
             <div class="mt-2 md:mt-0 px-3 py-1 bg-slate-100 dark:bg-slate-700 rounded-full text-sm font-semibold text-slate-600 dark:text-slate-300">
               ${course.term}
@@ -776,8 +810,12 @@
           <div class="prose-text text-slate-600 dark:text-slate-300">
             ${course.description}
           </div>
+          ${resourcesSection}
         </div>
-      `).join("");
+      `}).join("");
+
+      // Combine them
+      teachingContainer.innerHTML = philosophyHtml + `<div class="space-y-8">${coursesHtml}</div>`;
     }
 
     // --- INIT ---

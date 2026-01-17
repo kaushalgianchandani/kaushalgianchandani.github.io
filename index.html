@@ -287,7 +287,7 @@
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
           <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Publications</h1>
-          <p class="text-slate-600 dark:text-slate-400">Chronological list of my publications.</p>
+          <p class="text-slate-600 dark:text-slate-400">A chronological list of my publications.</p>
         </div>
         <div class="mt-4 md:mt-0">
           <a href="https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-sm bg-sky-50 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300 px-4 py-2 rounded-full font-bold hover:bg-sky-100 dark:hover:bg-sky-900/50 transition">
@@ -308,7 +308,7 @@
 
       <div class="mb-12">
         <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Teaching</h1>
-        <p class="text-slate-600 dark:text-slate-400">Collection of my formal and informal teaching efforts.</p>
+        <p class="text-slate-600 dark:text-slate-400">Teaching Assistant experience.</p>
       </div>
 
       <div id="teaching-container" class="space-y-8">
@@ -403,27 +403,39 @@
 
     // --- SCROLL SPY (Active Nav Link) ---
     function updateActiveNavLink() {
-      const scrollPos = window.scrollY;
-      const sections = ['about', 'research', 'publications']; // Main sections on home
       const navLinks = document.querySelectorAll('.nav-link');
-      
-      let currentSection = '';
-      
-      // Determine active section
-      sections.forEach(id => {
-        const element = document.getElementById(id);
-        if (element && (element.offsetTop - 150 <= scrollPos)) {
-           currentSection = id;
-        }
-      });
+      const removeActive = () => navLinks.forEach(l => l.classList.remove('active'));
+      const addActive = (hash) => {
+        removeActive();
+        const link = document.querySelector(`.nav-link[href="${hash}"]`);
+        if (link) link.classList.add('active');
+      };
 
-      // Update Nav Class
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-          link.classList.add('active');
-        }
-      });
+      // 1. Check which view is visible
+      if (!document.getElementById('teaching-view').classList.contains('hidden')) {
+        return addActive('#teaching');
+      }
+      if (!document.getElementById('all-publications-view').classList.contains('hidden')) {
+        return addActive('#publications');
+      }
+      if (!document.getElementById('research-view').classList.contains('hidden')) {
+        return addActive('#research');
+      }
+      if (!document.getElementById('blog-list-view').classList.contains('hidden') || !document.getElementById('single-post-view').classList.contains('hidden')) {
+        return addActive('#blog');
+      }
+      
+      // 2. If Main View is visible, check scroll
+      if (!document.getElementById('main').classList.contains('hidden')) {
+        // If near bottom (contact footer visible)
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+           return addActive('#contact');
+        } 
+        // Default to About if no other specific view is active
+        return addActive('#about');
+      }
+      
+      removeActive();
     }
     
     // Listen for scroll
@@ -457,7 +469,7 @@
       window.scrollTo(0, 0);
       if (updateHistory) history.pushState(null, "", window.location.pathname + window.location.search);
       closeMobileMenu();
-      updateActiveNavLink();
+      updateActiveNavLink(); // Force update
     }
 
     function showBlogList(updateHistory = true) {
@@ -467,6 +479,7 @@
       window.scrollTo(0, 0);
       if (updateHistory) window.location.hash = "blog";
       closeMobileMenu();
+      updateActiveNavLink(); // Force update
     }
 
     function showAllPublications(updateHistory = true) {
@@ -476,6 +489,7 @@
       window.scrollTo(0, 0);
       if (updateHistory) window.location.hash = "publications";
       closeMobileMenu();
+      updateActiveNavLink(); // Force update
     }
 
     function showTeaching(updateHistory = true) {
@@ -485,6 +499,7 @@
       window.scrollTo(0, 0);
       if (updateHistory) window.location.hash = "teaching";
       closeMobileMenu();
+      updateActiveNavLink(); // Force update
     }
 
     function showContact(updateHistory = true) {
@@ -494,6 +509,7 @@
       contactSection.scrollIntoView({ behavior: "smooth" });
       if (updateHistory) window.location.hash = "contact";
       closeMobileMenu();
+      updateActiveNavLink(); // Force update
     }
 
     function showResearch(index, updateHistory = true) {
@@ -513,6 +529,7 @@
         window.scrollTo(0, 0);
       }
       closeMobileMenu();
+      updateActiveNavLink(); // Force update
     }
 
     function readPost(index, updateHistory = true) {
@@ -536,6 +553,7 @@
       window.scrollTo(0, 0);
       if (updateHistory) window.location.hash = "post-" + index;
       closeMobileMenu();
+      updateActiveNavLink(); // Force update
     }
 
     function handleHashChange() {
@@ -827,11 +845,11 @@
       renderResearch();
       renderPublications();
       renderBlog();
-      // Render Teaching (safe check included inside function)
       renderTeaching();
       
       handleHashChange();
-      updateActiveNavLink();
+      // Ensure highlighter runs immediately after view change
+      setTimeout(updateActiveNavLink, 50); 
     });
   </script>
 </body>

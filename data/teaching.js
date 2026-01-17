@@ -20,7 +20,7 @@ const teaching = [
         term: "Spring 2025",
         description: "<p>... coming soon ...</p>",
         resources: [
-            {label: "Course Website", url: "https://weathertank.mit.edu/", icon: "fas fa-globe" },
+            {label: "Course Website", url: "https://weathertank.mit.edu/", icon: "fas fa-external-link-alt" },
             // { label: "Syllabus", url: "#", icon: "far fa-file-pdf" },
             // { label: "Wave Mechanics Notes", url: "#", icon: "far fa-file-alt" }
         ]

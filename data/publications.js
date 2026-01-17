@@ -45,7 +45,7 @@ const publications = [
         pages: "5265",
         doi: "10.1038/s41467-023-40905-7",
         link: "https://www.nature.com/articles/s41467-023-40905-7",
-        pdf: "pdfs/s41467-023-40905-7.pdf" 
+        pdf: "pdfs/paper_nat_comm_2023.pdf" 
     },
     {
         year: "2021",
@@ -69,6 +69,6 @@ const publications = [
         pages: "2217-2226",
         doi: "10.1016/j.renene.2019.12.041",
         link: "https://www.sciencedirect.com/science/article/abs/pii/S0960148119319135",
-        pdf: "pdfs/renewable_energy_2019.pdf" 
+        pdf: "pdfs/paper_renewable_energy_2019.pdf" 
     }
 ];

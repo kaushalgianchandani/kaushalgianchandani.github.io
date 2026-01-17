@@ -6,7 +6,7 @@
   <title>Kaushal Gianchandani</title>
 
   <!-- Basic SEO -->
-  <meta name="description" content="Kaushal Gianchandani. Oceanographer and NASA Postdoctoral Program (NPP) Fellow affiliated with NASA GISS. Research on Earth's climate, ocean circulation, and subsurface oceans on icy moons." />
+  <meta name="description" content="Kaushal Gianchandani. Oceanographer and NASA Postdoctoral Program (NPP) Fellow affiliated with NASA GISS." />
   <meta name="author" content="Kaushal Gianchandani" />
   <meta name="theme-color" content="#0f172a" />
   <meta name="color-scheme" content="light dark" />
@@ -27,7 +27,7 @@
     tailwind.config = { darkMode: "class" };
   </script>
 
-  <!-- Theme Initialization Script (prevents flash) -->
+  <!-- Theme Initialization -->
   <script>
     const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
     const stored = localStorage.getItem("theme");
@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css" />
 
   <style>
-    /* Typography for Long Form Content */
+    /* Typography */
     .prose-text { 
         line-height: 1.75; 
         font-size: 1.05rem; 
@@ -63,42 +63,38 @@
     .dark .prose-text strong { color: #f8fafc; }
     .prose-text img { max-width: 100%; border-radius: 0.5rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
 
-    /* --- Image Row Utility (for teaching/research galleries) --- */
+    /* Automatic Link Styling inside prose content */
+    /* This handles links in your bio, blog, and research descriptions automatically */
+    .prose-text a {
+        color: #0284c7; /* Sky-600 */
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+    .prose-text a:hover { color: #0369a1; }
+    .dark .prose-text a { color: #38bdf8; }
+    .dark .prose-text a:hover { color: #7dd3fc; }
+
+    /* Image Gallery Grid */
     .img-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Creates equal columns, stacks on mobile */
-        gap: 1rem; /* Spacing between images */
-        margin: 1.5rem 0;
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;
     }
-    /* Override standard prose margins when inside a row */
     .prose-text .img-row img {
-        margin: 0; 
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures images fill the square without stretching */
-        aspect-ratio: 4/3; /* Forces a consistent shape */
+        margin: 0; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; 
     }
 
-    /* Academic Link Styles */
-    .academic-link { color: #0284c7; text-decoration: none; transition: color 0.2s; }
-    .dark .academic-link { color: #38bdf8; }
-    .academic-link:hover { color: #0369a1; text-decoration: underline; }
-    .dark .academic-link:hover { color: #7dd3fc; }
-
-    /* Fade animation */
+    /* Animations & Util */
     .fade-in { animation: fadeIn 0.35s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* Skip link */
     .skip-link { position: absolute; left: -9999px; top: 0; padding: 0.75rem 1rem; background: #0f172a; color: white; border-radius: 0.5rem; z-index: 1000; }
     .skip-link:focus { left: 0.75rem; top: 0.75rem; }
 
-    /* Social icon hover colors */
+    /* Social Icons */
     a.social-icon { transition: color 200ms ease; }
     a.social-icon[data-social="scholar"]:hover { color: #4285F4; }
     a.social-icon[data-social="github"]:hover { color: #111827; }
-    .dark a.social-icon[data-social="github"]:hover,
-    #contact a.social-icon[data-social="github"]:hover { color: #ffffff; }
+    .dark a.social-icon[data-social="github"]:hover, #contact a.social-icon[data-social="github"]:hover { color: #ffffff; }
     a.social-icon[data-social="rg"]:hover { color: #00CCBB; }
     a.social-icon[data-social="orcid"]:hover { color: #A6CE39; }
     a.social-icon[data-social="linkedin"]:hover { color: #0077B5; }
@@ -129,20 +125,19 @@
           <a href="#blog" class="nav-link text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-400 font-medium text-sm uppercase tracking-wide cursor-pointer transition-colors" onclick="showBlogList(true); return false;">Blog</a>
           <a href="#contact" class="nav-link text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-400 font-medium text-sm uppercase tracking-wide cursor-pointer transition-colors" onclick="showContact(true); return false;">Contact</a>
 
-          <button type="button" onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400/60" aria-label="Toggle theme" title="Toggle theme">
+          <button type="button" onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400/60" aria-label="Toggle theme">
             <i class="fas fa-moon dark:hidden" aria-hidden="true"></i>
             <i class="fas fa-sun hidden dark:inline text-yellow-400" aria-hidden="true"></i>
           </button>
         </div>
 
-        <!-- Mobile Menu Button & Toggle -->
+        <!-- Mobile Menu Toggle -->
         <div class="flex items-center gap-4 sm:hidden">
-          <button type="button" onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center p-2 text-slate-500 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400/60 rounded-full" aria-label="Toggle theme" title="Toggle theme">
+          <button type="button" onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center p-2 text-slate-500 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400/60 rounded-full">
             <i class="fas fa-moon dark:hidden" aria-hidden="true"></i>
             <i class="fas fa-sun hidden dark:inline text-yellow-400" aria-hidden="true"></i>
           </button>
-
-          <button id="mobile-menu-button" type="button" onclick="toggleMenu()" class="w-10 h-10 flex items-center justify-center text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-400/60 rounded-md p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <button id="mobile-menu-button" type="button" onclick="toggleMenu()" class="w-10 h-10 flex items-center justify-center text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-400/60 rounded-md p-2">
             <i class="fas fa-bars text-xl" aria-hidden="true"></i>
           </button>
         </div>
@@ -150,182 +145,126 @@
     </div>
 
     <!-- Mobile Dropdown -->
-    <div id="mobile-menu" class="hidden sm:hidden bg-white border-t dark:bg-slate-900 dark:border-slate-800" role="menu" aria-label="Mobile navigation">
+    <div id="mobile-menu" class="hidden sm:hidden bg-white border-t dark:bg-slate-900 dark:border-slate-800">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <a href="#about" onclick="showHome(); closeMobileMenu(); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">About</a>
-        <a href="#research" onclick="showResearch(null, true); closeMobileMenu(); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">Research</a>
-        <a href="#publications" onclick="showAllPublications(true); closeMobileMenu(); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">Publications</a>
-        <a href="#teaching" onclick="showTeaching(true); closeMobileMenu(); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">Teaching</a>
-        <a href="#blog" onclick="showBlogList(true); closeMobileMenu(); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">Blog</a>
-        <a href="#contact" onclick="showContact(true); closeMobileMenu(); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">Contact</a>
+        <a href="#research" onclick="showResearch(null, true); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">Research</a>
+        <a href="#publications" onclick="showAllPublications(true); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">Publications</a>
+        <a href="#teaching" onclick="showTeaching(true); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">Teaching</a>
+        <a href="#blog" onclick="showBlogList(true); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">Blog</a>
+        <a href="#contact" onclick="showContact(true); return false;" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- 1. HOME VIEW -->
+  <!-- MAIN VIEWS -->
   <main id="main" tabindex="-1" class="flex-grow fade-in">
+    <!-- Home / About -->
     <section id="about" class="py-16 sm:py-24 bg-white dark:bg-slate-950 transition-colors duration-300">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-start gap-12">
           <div class="w-full md:w-1/3 flex-shrink-0 md:sticky md:top-24">
-            <div class="aspect-square bg-slate-200 dark:bg-slate-800 rounded-lg overflow-hidden shadow-lg relative group">
-              <img
-                src="images/headshot_kaushal.jpg"
-                alt="Kaushal Gianchandani"
-                class="w-full h-full object-cover"
-                onerror="this.src='https://ui-avatars.com/api/?name=Kaushal+G&background=0284c7&color=fff&size=512'"
-              />
+            <div class="aspect-square bg-slate-200 dark:bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+              <img src="images/headshot_kaushal.jpg" alt="Kaushal Gianchandani" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Kaushal+G&background=0284c7&color=fff&size=512'" />
             </div>
-
-            <!-- Header Social Icons Container -->
-            <div id="social-icons-header" class="mt-6 flex flex-wrap justify-center gap-4 text-3xl" aria-label="Social links"></div>
+            <div id="social-icons-header" class="mt-6 flex flex-wrap justify-center gap-4 text-3xl"></div>
           </div>
-
           <div class="w-full md:w-2/3">
             <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl mb-2">Kaushal Gianchandani</h1>
-            <p class="text-2l text-sky-700 dark:text-sky-400 font-medium mb-6">NASA Postdoctoral Program (NPP) Fellow at <a href="https://www.giss.nasa.gov/" target="_blank" rel="noopener noreferrer" class="academic-link">Goddard Institute of Space Studies (GISS)</a></p>
-
+            <p class="text-2l text-sky-700 dark:text-sky-400 font-medium mb-6">NASA Postdoctoral Program (NPP) Fellow at <a href="https://www.giss.nasa.gov/" target="_blank" class="hover:underline hover:text-sky-800 transition-colors">Goddard Institute of Space Studies (GISS)</a></p>
             <div class="prose-text text-slate-600 dark:text-slate-300 max-w-3xl">
-              <p>
-                I am an oceanographer by training who is currently employed as an NPP Fellow at 
-                <a href="https://www.giss.nasa.gov/" target="_blank" rel="noopener noreferrer" class="academic-link">GISS</a>.
-              </p>
-
-              <p>
-                My research focuses on better understanding the ocean's role in regulating Earth's climate and applying this knowledge to
-                celestial bodies that may potentially have oceans. Currently, I am investigating the circulation under ice-covered moons
-                in our solar system, e.g., Europa and Enceladus. Specifically, I use state-of-the-art numerical models to study how material
-                from the seafloor, including potential biosignatures from hydrothermal activity, is transported through subsurface
-                oceans to the moon's surface, where it may be accessible to spacecraft observations.
-              </p>
-
-              <p>
-                I received my PhD from the
-                <a href="https://en.huji.ac.il/" target="_blank" rel="noopener noreferrer" class="academic-link">Hebrew University of Jerusalem</a>,
-                where my research focused on the ocean circulation during the Neoproterozoic "snowball" Earth events and the Cretaceous
-                greenhouse climate.
-              </p>
+              <p>I am an oceanographer by training who is currently employed as an NPP Fellow at <a href="https://www.giss.nasa.gov/" target="_blank">GISS</a>.</p>
+              <p>My research focuses on better understanding the ocean's role in regulating Earth's climate and applying this knowledge to celestial bodies that may potentially have oceans. Currently, I am investigating the circulation under ice-covered moons in our solar system, e.g., Europa and Enceladus. Specifically, I use state-of-the-art numerical models to study how material from the seafloor, including potential biosignatures from hydrothermal activity, is transported through subsurface oceans to the moon's surface, where it may be accessible to spacecraft observations.</p>
+              <p>I received my PhD from the <a href="https://en.huji.ac.il/" target="_blank">Hebrew University of Jerusalem</a>, where my research focused on the ocean circulation during the Neoproterozoic "snowball" Earth events and the Cretaceous greenhouse climate.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="research-preview" class="hidden py-16 bg-slate-50 border-y border-slate-200 dark:bg-slate-900 dark:border-slate-800 transition-colors duration-300">
+    <!-- Previews -->
+    <section id="research-preview" class="hidden py-16 bg-slate-50 border-y border-slate-200 dark:bg-slate-900 dark:border-slate-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between mb-8">
           <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100">Research Interests</h2>
-          <a href="#research" onclick="showResearch(null, true); return false;" class="text-sm font-bold text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 hover:underline">Read More &rarr;</a>
+          <a href="#research" onclick="showResearch(null, true); return false;" class="text-sm font-bold text-sky-600 hover:underline">Read More &rarr;</a>
         </div>
         <div id="research-preview-container" class="grid md:grid-cols-3 gap-6"></div>
       </div>
     </section>
 
-    <section id="publications" class="py-16 bg-white dark:bg-slate-950 transition-colors duration-300">
+    <section id="publications" class="py-16 bg-white dark:bg-slate-950">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between mb-8">
           <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100">Select Publications</h2>
-          <a href="#publications" onclick="showAllPublications(true); return false;" class="text-sm font-bold text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 hover:underline">View Full List &rarr;</a>
+          <a href="#publications" onclick="showAllPublications(true); return false;" class="text-sm font-bold text-sky-600 hover:underline">View Full List &rarr;</a>
         </div>
         <div id="selected-publications-list" class="space-y-6"></div>
       </div>
     </section>
 
-    <section id="blog-preview-section" class="hidden py-16 bg-slate-50 border-t border-slate-200 dark:bg-slate-900 dark:border-slate-800 transition-colors duration-300">
+    <section id="blog-preview-section" class="hidden py-16 bg-slate-50 border-t border-slate-200 dark:bg-slate-900 dark:border-slate-800">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between mb-8">
           <h2 class="text-3xl font-bold text-slate-800 dark:text-slate-100">Latest Updates</h2>
-          <a href="#blog" onclick="showBlogList(true); return false;" class="text-sm font-bold text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 hover:underline">Read Blog &rarr;</a>
+          <a href="#blog" onclick="showBlogList(true); return false;" class="text-sm font-bold text-sky-600 hover:underline">Read Blog &rarr;</a>
         </div>
         <div id="blog-preview-container" class="grid md:grid-cols-3 gap-6"></div>
       </div>
     </section>
   </main>
 
-  <main id="research-view" class="flex-grow hidden fade-in bg-slate-50 min-h-screen dark:bg-slate-900 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <a href="#" onclick="showHome(true); return false;" class="mb-8 text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 font-medium flex items-center">
-        <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i> Back to Home
-      </a>
-
+  <!-- SUB PAGES -->
+  <main id="research-view" class="flex-grow hidden fade-in bg-slate-50 min-h-screen dark:bg-slate-900 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="#" onclick="showHome(true); return false;" class="mb-8 text-sky-600 font-medium flex items-center hover:underline"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
       <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Research Interests</h1>
       <p class="text-slate-600 dark:text-slate-400 mb-6">Brief overview of my research interests.</p>
-
       <div id="research-full-container" class="space-y-6"></div>
     </div>
   </main>
 
-  <main id="blog-list-view" class="flex-grow hidden fade-in bg-slate-50 min-h-screen dark:bg-slate-900 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <a href="#" onclick="showHome(true); return false;" class="mb-8 text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 font-medium flex items-center">
-        <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i> Back to Home
-      </a>
+  <main id="blog-list-view" class="flex-grow hidden fade-in bg-slate-50 min-h-screen dark:bg-slate-900 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="#" onclick="showHome(true); return false;" class="mb-8 text-sky-600 font-medium flex items-center hover:underline"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
       <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">The Scientific Blog</h1>
       <p class="text-slate-600 dark:text-slate-400 mb-12">Musings on oceanography and academic life.</p>
       <div id="blog-index-container" class="space-y-6"></div>
     </div>
   </main>
 
-  <main id="single-post-view" class="flex-grow hidden fade-in bg-white min-h-screen dark:bg-slate-950 transition-colors duration-300">
-    <div class="h-1 bg-slate-100 dark:bg-slate-800 w-full fixed top-0 left-0 z-50">
-      <div class="h-full bg-sky-500 w-0" id="reading-progress"></div>
-    </div>
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <a href="#blog" onclick="showBlogList(true); return false;" class="mb-8 text-slate-500 hover:text-sky-700 dark:text-slate-400 dark:hover:text-sky-400 font-medium flex items-center transition">
-        <i class="fas fa-chevron-left mr-2" aria-hidden="true"></i> Back to All Posts
-      </a>
+  <main id="single-post-view" class="flex-grow hidden fade-in bg-white min-h-screen dark:bg-slate-950 py-16">
+    <div class="h-1 bg-slate-100 dark:bg-slate-800 w-full fixed top-0 left-0 z-50"><div class="h-full bg-sky-500 w-0" id="reading-progress"></div></div>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="#blog" onclick="showBlogList(true); return false;" class="mb-8 text-slate-500 hover:text-sky-700 dark:text-slate-400 font-medium flex items-center transition"><i class="fas fa-chevron-left mr-2"></i> Back to All Posts</a>
       <article>
         <header class="mb-8">
-          <div class="flex items-center gap-3 mb-4">
-            <span id="post-date" class="text-sm font-bold text-sky-600 bg-sky-50 dark:bg-sky-900/30 dark:text-sky-300 px-3 py-1 rounded-full"></span>
-            <div id="post-tags" class="flex gap-2"></div>
-          </div>
+          <div class="flex items-center gap-3 mb-4"><span id="post-date" class="text-sm font-bold text-sky-600 bg-sky-50 dark:bg-sky-900/30 dark:text-sky-300 px-3 py-1 rounded-full"></span><div id="post-tags" class="flex gap-2"></div></div>
           <h1 id="post-title" class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white leading-tight"></h1>
         </header>
         <div id="post-content" class="prose-text text-lg text-slate-700 dark:text-slate-300"></div>
       </article>
-      <div class="mt-16 pt-8 border-t border-slate-100 dark:border-slate-800">
-        <p class="text-slate-400 italic text-sm">Thanks for reading.</p>
-      </div>
+      <div class="mt-16 pt-8 border-t border-slate-100 dark:border-slate-800"><p class="text-slate-400 italic text-sm">Thanks for reading.</p></div>
     </div>
   </main>
 
-  <main id="all-publications-view" class="flex-grow hidden fade-in bg-white min-h-screen dark:bg-slate-950 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <a href="#" onclick="showHome(true); return false;" class="mb-8 text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 font-medium flex items-center">
-        <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i> Back to Home
-      </a>
-
+  <main id="all-publications-view" class="flex-grow hidden fade-in bg-white min-h-screen dark:bg-slate-950 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="#" onclick="showHome(true); return false;" class="mb-8 text-sky-600 font-medium flex items-center hover:underline"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-        <div>
-          <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Publications</h1>
-          <p class="text-slate-600 dark:text-slate-400">Chronological list of my publications.</p>
-        </div>
-        <div class="mt-4 md:mt-0">
-          <a href="https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-sm bg-sky-50 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300 px-4 py-2 rounded-full font-bold hover:bg-sky-100 dark:hover:bg-sky-900/50 transition">
-            <i class="fas fa-external-link-alt mr-2" aria-hidden="true"></i> Google Scholar
-          </a>
-        </div>
+        <div><h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Publications</h1><p class="text-slate-600 dark:text-slate-400">Chronological list of my publications.</p></div>
+        <div class="mt-4 md:mt-0"><a href="https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en" target="_blank" class="text-sm bg-sky-50 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300 px-4 py-2 rounded-full font-bold hover:bg-sky-100 dark:hover:bg-sky-900/50 transition"><i class="fas fa-external-link-alt mr-2"></i> Google Scholar</a></div>
       </div>
       <div id="all-publications-container" class="space-y-6"></div>
     </div>
   </main>
 
   <!-- TEACHING VIEW (New) -->
-  <main id="teaching-view" class="flex-grow hidden fade-in bg-white min-h-screen dark:bg-slate-950 transition-colors duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <a href="#" onclick="showHome(true); return false;" class="mb-8 text-sky-600 hover:text-sky-800 dark:text-sky-400 dark:hover:text-sky-300 font-medium flex items-center">
-        <i class="fas fa-arrow-left mr-2" aria-hidden="true"></i> Back to Home
-      </a>
-
-      <div class="mb-12">
-        <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Teaching</h1>
-        <p class="text-slate-600 dark:text-slate-400">Collection of my formal and informal teaching efforts.</p>
-      </div>
-
-      <div id="teaching-container" class="space-y-8">
-        <!-- Teaching content will be injected here -->
-      </div>
+  <main id="teaching-view" class="flex-grow hidden fade-in bg-white min-h-screen dark:bg-slate-950 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="#" onclick="showHome(true); return false;" class="mb-8 text-sky-600 font-medium flex items-center hover:underline"><i class="fas fa-arrow-left mr-2"></i> Back to Home</a>
+      <div class="mb-12"><h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-2">Teaching</h1><p class="text-slate-600 dark:text-slate-400">Formal and informal teaching experience.</p></div>
+      <div id="teaching-container" class="space-y-8"></div>
     </div>
   </main>
 
@@ -338,7 +277,7 @@
 
       <div class="flex justify-center mb-8">
         <a href="mailto:kaushalg@mit.edu" class="group flex flex-col items-center hover:text-white transition bg-slate-800 rounded-xl px-10 py-6 hover:bg-slate-700 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-400/60">
-          <i class="fas fa-envelope text-3xl mb-3 text-sky-400 group-hover:text-white transition" aria-hidden="true"></i>
+          <i class="fas fa-envelope text-3xl mb-3 text-sky-400 group-hover:text-white transition"></i>
           <span class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Email Me</span>
         </a>
       </div>
@@ -347,32 +286,10 @@
   </footer>
 
   <!-- EXTERNAL DATA FILES -->
+  <!-- Ensure all data files are loaded here. Remove any inline placeholders. -->
   <script src="data/publications.js"></script>
-  <script>
-    // Embedded Research Data (per previous request)
-    const researchInterests = [
-        {
-            icon: ["fas fa-icicles", "fas fa-moon", "fi fi-sr-water"],
-            title: "Icy moon oceans",
-            summary: "Dynamics of oceans under ice shells on Europa and Enceladus.",
-            content: `... coming soon ... `
-        },
-        {
-            icon: "fas fa-water",
-            title: "Dynamic controls on surface ocean circulation",
-            summary: "Investigating the controls on the westward intensification of wind-driven ocean circulation.",
-            content: `... coming soon ... `
-        },
-        {
-            icon: ["fas fa-snowflake", "fas fa-basketball-ball", "fas fa-globe-americas"], 
-            title: "Snowball Earth modeling",
-            summary: "Exploring the Neoproterozoic 'Snowball Earth' events.",
-            content: `... coming soon ... `
-        }
-    ];
-  </script>
+  <script src="data/research_interests.js"></script>
   <script src="data/blog_posts.js"></script>
-  <!-- Load Teaching Data (Commented out until file is created) -->
   <script src="data/teaching.js"></script>
 
   <script>

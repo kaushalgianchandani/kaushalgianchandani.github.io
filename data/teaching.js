@@ -1,8 +1,8 @@
 // HTML tags like <p>, <strong>, <em> are supported.
 // Teaching philosophy
 const teachingPhilosophy = `
-    <p> I try to make clear how equations, data, and models are used to describe real physical systems in Earth and Planetary Sciences.</p>
-    <p> Students come into the field with different levels of quantitative preparation, especially in interdisciplinary areas like oceanography and planetary science. This heterogeneity, in my opinion, is a strength! I focus on building shared foundations while supporting students who are newer to tools such as statistics or numerical modeling, so they can work more comfortably with unfamiliar problems both in and beyond the classroom.</p>
+    <p> I try to make clear how equations, data, and models are used to describe real physical systems in Earth and Planetary Sciences, often through project-based work that lets students explore these ideas in practice.</p>
+    <p> Because the field is inherently interdisciplinary, students come in with different levels of quantitative preparation. I see this heterogeneity as a strength, especially in project-driven settings where students learn from each other’s approaches. I focus on building shared foundations while supporting those who are newer to tools such as statistics or numerical modeling, so everyone can engage more comfortably with unfamiliar problems, both in and beyond the classroom.</p>
 `;
 
 const teaching = [

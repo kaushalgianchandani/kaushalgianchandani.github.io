@@ -28,7 +28,7 @@ const teaching = [
         `,
 
         resources: [
-            {label: "Course Website", url: "https://weathertank.mit.edu/", icon: "fas fa-external-link-alt" },
+            {label: "Course Website", url: "http://weatherclimatelab.mit.edu/", icon: "fas fa-external-link-alt" },
             // { label: "Syllabus", url: "#", icon: "far fa-file-pdf" },
             // { label: "Notes", url: "#", icon: "far fa-file-alt" }
         ]

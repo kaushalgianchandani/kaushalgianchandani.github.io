@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ site.description }}" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: "class" };
+  </script>
+
+  <!-- Theme Init -->
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+    function toggleTheme() {
+        const root = document.documentElement;
+        const isDark = root.classList.contains("dark");
+        root.classList.toggle("dark", !isDark);
+        localStorage.setItem("theme", isDark ? "light" : "dark");
+    }
+    function toggleMenu() {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+    }
+  </script>
+
+  <!-- Icons & Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    html { scrollbar-gutter: stable; }
+    body { font-family: 'Inter', sans-serif; }
+
+    .prose-text { 
+        line-height: 1.75; 
+        font-size: 1.05rem; 
+        color: #334155; 
+        text-align: left; 
+        text-rendering: optimizeLegibility;
+    }
+    .dark .prose-text { color: #cbd5e1; }
+    .prose-text p { margin-bottom: 1.25rem; }
+
+    .prose-text h3 { 
+        font-size: 1.5rem; 
+        font-weight: 700; 
+        margin-top: 2rem; 
+        margin-bottom: 1rem; 
+        color: #1e293b; 
+    }
+    .dark .prose-text h3 { color: #f1f5f9; }
+
+    .prose-text ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .prose-text li { margin-bottom: 0.5rem; }
+    .prose-text strong { font-weight: 600; color: #0f172a; }
+    .dark .prose-text strong { color: #f8fafc; }
+    .prose-text img { max-width: 100%; border-radius: 0.5rem; margin: 1.5rem 0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+
+    /* Links */
+    .prose-text a, .academic-link {
+        color: #0284c7; text-decoration: none; transition: color 0.2s;
+    }
+    .prose-text a { text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .prose-text a:hover, .academic-link:hover { color: #0369a1; text-decoration: underline; }
+    .dark .prose-text a, .dark .academic-link { color: #38bdf8; }
+    .dark .prose-text a:hover, .dark .academic-link:hover { color: #7dd3fc; }
+
+    /* Img Row */
+    .img-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .prose-text .img-row img { margin: 0; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+
+    /* Fade In */
+    .fade-in { animation: fadeIn 0.35s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Nav Active State */
+    .nav-link.active { color: #0284c7; font-weight: 600; }
+    .dark .nav-link.active { color: #38bdf8; }
+
+    /* Social Icons */
+    a.social-icon { transition: color 200ms ease; }
+  </style>
+</head>
+
+<body class="font-sans flex flex-col min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 transition-colors duration-300">
+  
+  <nav class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-transparent dark:bg-slate-900/90 dark:border-slate-800 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="{{ '/' | relative_url }}" class="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight cursor-pointer">KG</a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden sm:flex items-center space-x-8">
+          {% assign nav_links = "About: /|Research: /research/|Publications: /publications/|Teaching: /teaching/|Blog: /blog/|Contact: /#contact" | split: "|" %}
+          
+          {% for link_pair in nav_links %}
+            {% assign parts = link_pair | split: ": " %}
+            {% assign label = parts[0] %}
+            {% assign url = parts[1] | relative_url %}
+            {% assign is_active = false %}
+            {% if page.url == parts[1] %}
+                {% assign is_active = true %}
+            {% elsif page.layout == 'post' and label == 'Blog' %}
+                {% assign is_active = true %}
+            {% endif %}
+
+            <a href="{{ url }}" class="nav-link text-slate-600 hover:text-sky-700 dark:text-slate-300 dark:hover:text-sky-400 font-medium text-sm uppercase tracking-wide cursor-pointer transition-colors {% if is_active %}active{% endif %}">
+              {{ label }}
+            </a>
+          {% endfor %}
+
+          <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:inline text-yellow-400"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <div class="flex items-center gap-4 sm:hidden">
+          <button onclick="toggleTheme()" class="p-2 text-slate-500 dark:text-slate-400"><i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline text-yellow-400"></i></button>
+          <button onclick="toggleMenu()" class="text-slate-500 hover:text-slate-700 dark:text-slate-400"><i class="fas fa-bars text-xl"></i></button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden bg-white border-t dark:bg-slate-900 dark:border-slate-800">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        {% for link_pair in nav_links %}
+            {% assign parts = link_pair | split: ": " %}
+            <a href="{{ parts[1] | relative_url }}" class="block px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md">{{ parts[0] }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="flex-grow fade-in">
+    {{ content }}
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="py-12 bg-slate-900 text-slate-300 border-t dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex justify-center gap-6 mb-8 text-2xl">
+        {% for link in site.data.social %}
+            <a href="{{ link.url }}" target="_blank" class="social-icon text-slate-400 dark:text-slate-500 {{ link.hover }} transition-colors" title="{{ link.title }}">
+                <i class="{{ link.icon }} fa-fw"></i>
+            </a>
+        {% endfor %}
+      </div>
+      <div class="flex justify-center mb-8">
+        <a href="mailto:{{ site.email }}" class="group flex flex-col items-center hover:text-white transition bg-slate-800 rounded-xl px-10 py-6 hover:bg-slate-700 border border-slate-700">
+          <i class="fas fa-envelope text-3xl mb-3 text-sky-400 group-hover:text-white transition"></i>
+          <span class="text-xs text-slate-400 mt-1 uppercase tracking-wider">Email Me</span>
+        </a>
+      </div>
+      <div class="text-xs text-slate-500">&copy; {{ site.time | date: '%Y' }} {{ site.title }}.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

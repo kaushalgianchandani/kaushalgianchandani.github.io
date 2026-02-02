@@ -1,0 +1,24 @@
+- title: Google Scholar
+  url: https://scholar.google.com/citations?user=AgCAh1kAAAAJ&hl=en
+  icon: ai ai-google-scholar
+  hover: hover:text-[#4285F4]
+
+- title: GitHub
+  url: https://github.com/kaushalgianchandani
+  icon: fab fa-github
+  hover: hover:text-black dark:hover:text-white
+
+- title: ResearchGate
+  url: https://www.researchgate.net/profile/Kaushal-Gianchandani
+  icon: ai ai-researchgate
+  hover: hover:text-[#00CCBB]
+
+- title: ORCID
+  url: https://orcid.org/0000-0002-8377-759X
+  icon: ai ai-orcid
+  hover: hover:text-[#A6CE39]
+
+- title: LinkedIn
+  url: https://www.linkedin.com/in/kaushalgianchandani/
+  icon: fab fa-linkedin
+  hover: hover:text-[#0077B5]

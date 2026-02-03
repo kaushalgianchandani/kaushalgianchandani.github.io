@@ -16,5 +16,5 @@ collections:
     output: true 
     sort_by: date
   research:
-    output: true 
-    sort_by: weight # Allows manual ordering (1, 2, 3) in the markdown files
+    output: true
+    sort_by: date 

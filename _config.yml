@@ -13,8 +13,8 @@ plugins:
 # Define Collections (This enables the _teaching and _research folders)
 collections:
   teaching:
-    output: false # 'false' means we list them on one page, rather than generating a separate page per course
+    output: true 
     sort_by: date
   research:
-    output: false 
+    output: true 
     sort_by: weight # Allows manual ordering (1, 2, 3) in the markdown files

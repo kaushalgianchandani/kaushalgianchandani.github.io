@@ -1,0 +1,20 @@
+title: Kaushal Gianchandani
+email: kaushalg@mit.edu
+description: >-
+  Oceanographer and NASA Postdoctoral Program (NPP) Fellow working on the ocean circulation of ice-covered moons in our solar system, e.g., Europa and Enceladus.
+baseurl: "" 
+url: "" 
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+# Define Collections (This enables the _teaching and _research folders)
+collections:
+  teaching:
+    output: false # 'false' means we list them on one page, rather than generating a separate page per course
+    sort_by: date
+  research:
+    output: false 
+    sort_by: weight # Allows manual ordering (1, 2, 3) in the markdown files

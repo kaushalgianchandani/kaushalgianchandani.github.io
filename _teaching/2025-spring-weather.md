@@ -7,7 +7,7 @@ university: Massachusetts Institute of Technology
 term: Spring 2025
 date: 2025-01-01 
 date_display : Spring 2025
-excerpt: Hands-on rotating-tank laboratory course linking geophysical fluid dynamics theory with experiments, instrumentation, and data analysis.
+excerpt: Hands-on laboratory course linking geophysical fluid dynamics theory with experiments, instrumentation, and data analysis.
 resources:
   - label: Course Website
     url: https://weathertank.mit.edu/

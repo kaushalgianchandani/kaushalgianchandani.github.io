@@ -18,4 +18,4 @@ collections:
     sort_by: date
   research:
     output: true
-    sort_by: date 
+    sort_by: order

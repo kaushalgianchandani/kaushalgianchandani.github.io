@@ -3,6 +3,7 @@ layout: research_entry
 title: Dynamic controls on surface ocean circulation
 order: 3
 icons: 
+  - fas fa-rectangle
   - fas fa-wind
   - fas fa-water
 hook: "Spoiler: Basin's shape is important!"

@@ -160,7 +160,10 @@
 
         <!-- Desktop Menu -->
         <div class="hidden sm:flex items-center space-x-8">
-          {% assign nav_links = "About: /|Research: /research/|Publications: /publications/|Teaching: /teaching/|Blog: /blog/|Contact: /#contact" | split: "|" %}
+          {% assign nav_links = "About: /|Research: /research/|Publications: /publications/|Teaching: /teaching/|Contact: /#contact" | split: "|" %}
+          {% if site.show_blog %}
+            {% assign nav_links = nav_links | push: "Blog: /blog/" %}
+          {% endif %}
           
           {% for link_pair in nav_links %}
             {% assign parts = link_pair | split: ": " %}

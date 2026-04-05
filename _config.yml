@@ -4,6 +4,7 @@ description: >-
   Oceanographer and NASA Postdoctoral Program (NPP) Fellow working on the ocean circulation of ice-covered moons in our solar system, e.g., Europa and Enceladus.
 baseurl: "" 
 url: "" 
+show_blog: false
 
 # Build settings
 markdown: kramdown

@@ -2,10 +2,10 @@
 layout: research_entry
 title: Neoproterozoic Snowball Earth oceans
 order: 2
-icons:
-  - fas fa-snowflake
-  - fas fa-basketball
-  - fas fa-earth
+# icons:
+#   - fas fa-snowflake
+#   - fas fa-basketball
+#   - fas fa-earth
 hook: "What happens to the ocean when the planet nearly freezes?"
 excerpt: >
   Exploring ocean circulation and biogeochemistry during Neoproterozoic Snowball Earth events.

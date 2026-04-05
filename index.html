@@ -46,6 +46,7 @@ permalink: /
         <a href="{{ item.url | relative_url }}"
            class="block bg-white dark:bg-slate-800 p-6 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700 cursor-pointer hover:shadow-md hover:border-sky-200 dark:hover:border-sky-700 transition group">
 
+          {% comment %}
           {% assign icons = item.icons | default: item.icon %}
           {% if icons %}
             <div class="text-sky-600 dark:text-sky-400 text-4xl mb-4 group-hover:scale-110 transition-transform">
@@ -58,6 +59,7 @@ permalink: /
               {% endif %}
             </div>
           {% endif %}
+          {% endcomment %}
 
           <h3 class="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100 group-hover:text-sky-700 transition">
             {{ item.title }}

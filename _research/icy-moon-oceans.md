@@ -2,10 +2,10 @@
 layout: research_entry
 title: Icy moon oceans
 order: 1
-icons:
-  - fas fa-icicles
-  - fas fa-moon
-  - fas fa-water
+# icons:
+#   - fas fa-icicles
+#   - fas fa-moon
+#   - fas fa-water
 hook: "Life without sunlight, oceans without atmosphere."
 excerpt: >
   Investigating ocean circulation beneath icy shells and what these alien oceans reveal about habitability.

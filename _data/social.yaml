@@ -8,11 +8,6 @@
   icon: fab fa-github
   hover: hover:text-black dark:hover:text-white
 
-- title: ResearchGate
-  url: https://www.researchgate.net/profile/Kaushal-Gianchandani
-  icon: ai ai-researchgate
-  hover: hover:text-[#00CCBB]
-
 - title: ORCID
   url: https://orcid.org/0000-0002-8377-759X
   icon: ai ai-orcid

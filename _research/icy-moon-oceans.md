@@ -6,7 +6,6 @@ order: 1
 #   - fas fa-icicles
 #   - fas fa-moon
 #   - fas fa-water
-hook: "How circulation moves heat through oceans beneath the ice shells of Europa and Enceladus."
 excerpt: >
   How turbulent circulation moves heat and seafloor-derived material through oceans beneath the ice shells of Europa and Enceladus.
 ---

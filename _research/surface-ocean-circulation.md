@@ -6,7 +6,6 @@ order: 3
 #   - fas fa-draw-polygon
 #   - fas fa-wind
 #   - fas fa-water
-hook: "How ocean-basin shape influences western boundary currents and heat transport."
 excerpt: >
   How the shape of an ocean basin influences western boundary currents,
   heat transport, and implications for past and future climate.

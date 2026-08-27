@@ -66,13 +66,7 @@ permalink: /
           </h3>
 
           <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-            {% if item.hook %}
-              {{ item.hook }}
-            {% elsif item.excerpt %}
-              {{ item.excerpt | strip_html | truncatewords: 16 }}
-            {% else %}
-              {{ item.content | strip_html | truncatewords: 16 }}
-            {% endif %}
+            {{ item.excerpt | default: item.content | strip_html | truncatewords: 30 }}
           </p>
 
         </a>

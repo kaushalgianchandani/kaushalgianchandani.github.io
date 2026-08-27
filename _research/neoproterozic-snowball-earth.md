@@ -6,7 +6,7 @@ order: 2
 #   - fas fa-snowflake
 #   - fas fa-basketball
 #   - fas fa-earth
-hook: "What happens to the ocean when the planet nearly freezes?"
+hook: "Ocean circulation and biogeochemistry during Neoproterozoic Snowball Earth events."
 excerpt: >
   Exploring ocean circulation and biogeochemistry during Neoproterozoic Snowball Earth events.
 ---

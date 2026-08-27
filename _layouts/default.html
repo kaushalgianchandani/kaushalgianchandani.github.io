@@ -17,6 +17,15 @@
   <meta name="description" content="{{ site.description }}" />
   <meta name="theme-color" content="#0f172a" />
 
+  <style>
+    /* Prevent a light browser canvas while the dark-theme stylesheet loads. */
+    html, body { background-color: #f8fafc; }
+    html.dark, html.dark body {
+      background-color: #020617;
+      color-scheme: dark;
+    }
+  </style>
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -143,7 +152,7 @@
   </style>
 </head>
 
-<body class="font-sans flex flex-col min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 transition-colors duration-300">
+<body class="font-sans flex flex-col min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
   
   <!-- Skip Link (Corrected Accessibility) -->
   <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-slate-900 focus:text-white focus:rounded-md focus:shadow-lg">
